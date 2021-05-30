@@ -11,4 +11,32 @@
 	<select id="boardlist" resultType="b_dto">
 		SELECT * FROM BOARD210527  
 	</select>
+	
+	<update id="boardhits" parameterType="int">
+		UPDATE BOARD210527 SET BHITS=BHITS+1 WHERE BNUMBER=#{bnumber}
+	</update>
+	
+	<select id="boardview" parameterType="int" resultType="b_dto">
+		SELECT * FROM BOARD210527 WHERE BNUMBER=#{bnumber}
+	</select>
  </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

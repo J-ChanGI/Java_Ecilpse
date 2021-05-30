@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.board.dto.b_dto;
@@ -23,11 +24,6 @@ public class b_contoller {
 		return "boardwrite";
 	}
 	
-	@RequestMapping(value="/listpage") //list  링크
-	public String boardlistpage() {
-		System.out.println("list 링크");
-		return "boardlist";
-	}
 	
 	@RequestMapping(value="/boardwrite") // 글작성 
 	public ModelAndView boardwrite (@ModelAttribute b_dto b_dto ) {
@@ -37,13 +33,35 @@ public class b_contoller {
 		
 	}
 	
-	@RequestMapping(value="/boardlist")
+	@RequestMapping(value="/boardlist") // 리스트 띄우기
 	public ModelAndView boardList() {
-		System.out.println("boardlist 컨트롤");
+	
 		mav = bs.boardList();
 		
 		return mav;
 	}
+	//글조회
+	
+	@RequestMapping(value="/boardview")
+	public ModelAndView boardView(@RequestParam("bnumber") int bnumber) {
+		mav = bs.boardView(bnumber);
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

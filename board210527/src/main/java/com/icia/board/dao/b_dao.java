@@ -24,4 +24,37 @@ public class b_dao {
 		return sql.selectList("board.boardlist");
 	}
 
+	public void boardHits(int bnumber) {
+		sql.update("board.boardhits",bnumber);
+		
+	}
+
+	public b_dto boardView(int bnumber) {
+		
+		return sql.selectOne("board.boardview", bnumber);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
