@@ -19,9 +19,28 @@
 	<select id="boardview" parameterType="int" resultType="b_dto">
 		SELECT * FROM BOARD210527 WHERE BNUMBER=#{bnumber}
 	</select>
+	
+	<update id="boardupdate" parameterType="b_dto">
+		UPDATE BOARD210527 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents} WHERE BNUMBER=#{bnumber}
+	</update>
+	
+	<update id="boardupdateprocess" parameterType="b_dto">
+		UPDATE BOARD210527 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents} WHERE BNUMBER=#{bnumber}
+	</update>
+	
+	
+	<delete id="boarddelete" parameterType="int">
+			DELETE FROM BOARD210527 WHERE BNUMBER=#{bnumber}		
+	</delete>
+	
+	<insert id="boardwritefile" parameterType="b_dto">
+		INSERT INTO BOARD210527(BNUMBER,BWRITER,BPASSWORD,BTITLE,BCONTENTS,BDATE,BHITS, BFILENAME) <!-- DB 에도 BFILENAME 을 하나 추가 글자형으로  -->
+			VALUES(BOARD_SEQ.NEXTVAL,#{bwriter},#{bpassword},#{btitle},#{bcontents},SYSDATE,0,#{bfilename})
+	</insert>
+	
  </mapper>
  
- 
+ <!-- view , 수정요청, 처리 , 삭제 안되고  -->
  
  
  

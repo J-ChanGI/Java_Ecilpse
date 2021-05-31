@@ -12,6 +12,7 @@
 	 border-collapse : collapse;
 	}
 </style>
+
 </head>
 <body>
 	<h2> list </h2>
@@ -34,6 +35,7 @@
 				<td>${board.bcontents}</td>
 				<td>${board.bdate}</td>
 				<td>${board.bhits}</td>
+				
 			</tr>
 		</c:forEach>
 		

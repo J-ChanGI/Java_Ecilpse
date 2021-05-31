@@ -1,5 +1,7 @@
 package com.icia.board.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,14 +20,16 @@ public class b_contoller {
 	
 	private ModelAndView mav;
 	
-	@RequestMapping(value="/writepage") // writer 링크
+	// writer 링크
+	@RequestMapping(value="/writepage") 
 	public String boardwritepage() {
 		System.out.println("writer 링크");
 		return "boardwrite";
 	}
 	
+	// 글작성 
 	
-	@RequestMapping(value="/boardwrite") // 글작성 
+	@RequestMapping(value="/boardwrite") 
 	public ModelAndView boardwrite (@ModelAttribute b_dto b_dto ) {
 		System.out.println("컨트롤 boardwrite");
 		mav = bs.boardwrite(b_dto);
@@ -33,7 +37,16 @@ public class b_contoller {
 		
 	}
 	
-	@RequestMapping(value="/boardlist") // 리스트 띄우기
+	//파일첨부 글쓰기
+	@RequestMapping(value="/boardwritefile")
+	public ModelAndView boardwritefile(@ModelAttribute b_dto b_dto) throws IllegalStateException, IOException { //예외처
+		mav = bs.boardwritefile(b_dto);
+		return mav;
+	}
+	
+	
+	// 목록 출력
+	@RequestMapping(value="/boardlist")
 	public ModelAndView boardList() {
 	
 		mav = bs.boardList();
@@ -44,14 +57,31 @@ public class b_contoller {
 	
 	@RequestMapping(value="/boardview")
 	public ModelAndView boardView(@RequestParam("bnumber") int bnumber) {
+		System.out.println("view 컨트롤"+bnumber);
 		mav = bs.boardView(bnumber);
 		return mav;
 	}
 	
-	
-	
-	
-	
+	// 수정 요청
+	@RequestMapping(value="/boardupdate")
+	public ModelAndView boardupdate(@RequestParam("bnumber") int bnumber) {
+		System.out.println("update 수정요청 컨트롤");
+		mav = bs.boardupdate(bnumber);
+		return mav;
+	}
+	//수정 처리
+	@RequestMapping(value="/updateprocess")
+	public ModelAndView updateprocess(@ModelAttribute b_dto board) {
+		System.out.println("update 수정처리 컨트롤");
+		mav = bs.updateprocess(board);
+		return mav;
+	}
+	// 삭제
+	@RequestMapping(value="/boarddelete")
+	public ModelAndView boarddelete(@RequestParam("bnumber") int bnumber) {
+		mav = bs.boarddelete(bnumber);
+		return mav;
+	}
 	
 	
 	
