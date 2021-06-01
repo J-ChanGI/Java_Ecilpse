@@ -23,12 +23,7 @@
 	<update id="boardupdate" parameterType="b_dto">
 		UPDATE BOARD210527 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents} WHERE BNUMBER=#{bnumber}
 	</update>
-	
-	<update id="boardupdateprocess" parameterType="b_dto">
-		UPDATE BOARD210527 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents} WHERE BNUMBER=#{bnumber}
-	</update>
-	
-	
+		
 	<delete id="boarddelete" parameterType="int">
 			DELETE FROM BOARD210527 WHERE BNUMBER=#{bnumber}		
 	</delete>
@@ -37,6 +32,32 @@
 		INSERT INTO BOARD210527(BNUMBER,BWRITER,BPASSWORD,BTITLE,BCONTENTS,BDATE,BHITS, BFILENAME) <!-- DB 에도 BFILENAME 을 하나 추가 글자형으로  -->
 			VALUES(BOARD_SEQ.NEXTVAL,#{bwriter},#{bpassword},#{btitle},#{bcontents},SYSDATE,0,#{bfilename})
 	</insert>
+	
+	<select id="listcount" resultType="int">
+		SELECT COUNT(BNUMBER) FROM BOARD210527
+	</select>
+	
+	<select id="boardpaging" parameterType ="pagedto" resultType="b_dto">
+		SELECT * FROM (SELECT B.*, ROW_NUMBER() OVER(ORDER BY BNUMBER DESC)
+		AS RN FROM BOARD210527 B) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="boardsearch" parameterType="java.util.HashMap" resultType="b_dto">
+		SELECT * FROM BOARD210527
+			<include refid = "search"></include>
+	</select>
+		<sql id="search">
+			<choose>
+				<when test="type=='btitle'">
+					WHERE BTITLE LIKE '%' ||#{word}||'%"
+				</when>
+				<when test="type=='bwriter'">
+					WHERE BWRITER LIKE '%' ||#{word}||'%'
+				</when>	
+			</choose>
+			
+		</sql>
+	
 	
  </mapper>
  

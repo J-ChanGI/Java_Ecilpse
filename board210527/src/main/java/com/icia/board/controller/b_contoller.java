@@ -56,9 +56,10 @@ public class b_contoller {
 	//글조회
 	
 	@RequestMapping(value="/boardview")
-	public ModelAndView boardView(@RequestParam("bnumber") int bnumber) {
+	public ModelAndView boardView(@RequestParam("bnumber") int bnumber,
+			@RequestParam(value="page", required=false, defaultValue="1")int page) {
 		System.out.println("view 컨트롤"+bnumber);
-		mav = bs.boardView(bnumber);
+		mav = bs.boardView(bnumber,page);
 		return mav;
 	}
 	
@@ -84,14 +85,20 @@ public class b_contoller {
 	}
 	
 	
+	// 페이징처리
+	@RequestMapping(value="/paging")
+	public ModelAndView boardpaging(@RequestParam(value="page", required=false, 
+															defaultValue="1")int page) {
+		mav = bs.boardpaging(page);
+		return mav;
+	}
 	
+	@RequestMapping(value="/search")
+	public ModelAndView boardsearch(@RequestParam("searchtype") String searchtype, @RequestParam("keyword")String keyword) {
+		mav = bs.boardsearch(searchtype,keyword);
+		return mav;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

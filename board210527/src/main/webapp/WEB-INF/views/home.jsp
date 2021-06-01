@@ -13,5 +13,8 @@
 	
 		<a href= "writepage">글쓰기 페이지 이동</a><br>
 		<a href= "boardlist">글목록 페이지 이동</a> 
+		
+		<a href="paging">페이징 처리목록 </a>
+		
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.icia.board.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.jdbc.SQL;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.icia.board.dto.b_dto;
+import com.icia.board.dto.pageDTO;
 
 @Repository
 public class b_dao {
@@ -55,6 +57,21 @@ public class b_dao {
 	public void boardwriteFile(b_dto b_dto) {
 		sql.insert("board.boardwritefile",b_dto);
 		
+	}
+
+	public int listCount() {
+		
+		return sql.selectOne("board.listcount");
+	}
+
+	public List<b_dto> boardpaging(pageDTO paging) {
+		
+		return sql.selectList("board.boardpaging", paging);
+	}
+
+	public List<b_dto> boardsearch(Map<String, String> searchmap) {
+		
+		return sql.selectList("board.boardsearch", searchmap);
 	}
 
 

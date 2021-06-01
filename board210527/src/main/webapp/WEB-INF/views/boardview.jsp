@@ -45,6 +45,8 @@
 	<button onclick="update()">수정버튼</button>
 	-->	
 	<button onclick="boarddelete()">삭제</button>
+	
+	<a href="paging?page=${page}">목록</a>
 </body>
 </html>
 
