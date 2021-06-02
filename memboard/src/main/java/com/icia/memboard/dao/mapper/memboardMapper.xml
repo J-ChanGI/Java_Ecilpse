@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mb"> 
+	<insert id="member" parameterType="memboarddto">
+		INSERT INTO MEMBOARD210602 (MID,MPASSWORD,MNAME,MNUMBER,MEMAIL,MFILENAME) VALUES(#{mid},#{mpassword},#{mname},#{mnumber},#{memail},#{mfilename})
+	</insert>
+	<select id="memboardlogin" parameterType = "memboarddto" resultType="String">
+		SELECT MID FROM MEMBOARD210602 WHERE MID=#{mid} AND MPASSWORD=#{mpassword}
+	</select> 
+<!--<select id="memboardview" parameterType="String" resultType="memboarddto">
+		SELECT * FORM MEMBOARD210602 WHERE MID=#{mid}		
+	</select>-->
+	<select id="memboardupdate" parameterType="String" resultType="memboarddto">
+		SELECT * FROM MEMBOARD210602 WHERE MID=#{loginid} 
+	</select>
+	
+	<update id="memboardupdateprocess" parameterType="memboarddto">
+		UPDATE MEMBOARD210602 SET MNAME=#{mname},MNUMBER=#{mnumber},MEMAIL=#{memail},MFILENAME=#{mfilename} WHERE MID=#{mid}
+	</update>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
