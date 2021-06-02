@@ -31,7 +31,7 @@
 				<td>${board.bnumber}</td>
 				<td>${board.bwriter}</td>
 				<td>${board.bpassword}</td>
-				<td><a href= "boardview?bnumber=${board.btitle}">${board.btitle}</a></td>
+				<td><a href= "boardview?bnumber=${board.bnumber}">${board.btitle}</a></td>
 				<td>${board.bcontents}</td>
 				<td>${board.bdate}</td>
 				<td>${board.bhits}</td>

@@ -72,14 +72,14 @@ public class b_contoller {
 	}
 	//수정 처리
 	@RequestMapping(value="/updateprocess")
-	public ModelAndView updateprocess(@ModelAttribute b_dto board) {
+	public ModelAndView updateprocess(@ModelAttribute b_dto b_dto) {
 		System.out.println("update 수정처리 컨트롤");
-		mav = bs.updateprocess(board);
+		mav = bs.updateprocess(b_dto);
 		return mav;
 	}
 	// 삭제
 	@RequestMapping(value="/boarddelete")
-	public ModelAndView boarddelete(@RequestParam("bnumber") int bnumber) {
+	public ModelAndView boarddelete(@RequestParam int bnumber) {
 		mav = bs.boarddelete(bnumber);
 		return mav;
 	}

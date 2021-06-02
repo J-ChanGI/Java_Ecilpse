@@ -61,13 +61,13 @@ public class b_service {
 		//2. 해당 글의 내용 가져오기 (select 쿼리)
 		
 		bdao.boardHits(bnumber);
-		
+		System.out.println("hits" + bnumber);
 		b_dto b_dto = bdao.boardView(bnumber);
 		
 		
 		// 상세보기 후 목록으로 돌아갈 때 현재 페이지를 유지하기 위해 page도 같이 가져감
 		
-		mav.addObject("page", page);
+//		mav.addObject("page", page);
 		
 		mav.addObject("board",b_dto);
 		mav.setViewName("boardview");
@@ -79,9 +79,10 @@ public class b_service {
 		System.out.println("update 수정요청 서비스");
 		mav = new ModelAndView ();
 				
-		b_dto b_dto = bdao.boardupdate(bnumber);
+		b_dto b_dto = bdao.boardView(bnumber);
 		mav.addObject("boardupdate",b_dto);
 		mav.setViewName("boardupdate");
+		
 		return mav;
 	}
 //  update 수정 처리
@@ -89,19 +90,20 @@ public class b_service {
 		System.out.println("update 수정처리 서비스");
 		mav = new ModelAndView();
 		int updateResult = bdao.updateprocess(b_dto);
+		
 		if(updateResult > 0) {
 			//1. 목록출력
 //			mav.setViewName("redirect:/boardlist"); 
 			//2. 해당글의 상세화면 출력
-			mav.setViewName("redirect:/boardview?bnumber" + b_dto.getBnumber());
+			mav.setViewName("redirect:/boardview?bnumber=" + b_dto.getBnumber());
 //			단순히 redirect 를 하게 될 경우 오류가 나온다 이유는 parameter로 값을 받아온게 있기 때문에 그냥 사용이불가능 parameter로 설정한 값을 가져와야한다. 
 		
 		}
-		
 		return mav;
 	}
 //		삭제 
 	public ModelAndView boarddelete(int bnumber) {
+		System.out.println("삭제 service");
 		mav = new ModelAndView();
 		int deleteResult = bdao.boardelete(bnumber);
 		if(deleteResult >0 ) {

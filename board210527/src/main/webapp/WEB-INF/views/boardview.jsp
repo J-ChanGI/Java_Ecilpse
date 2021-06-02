@@ -15,7 +15,7 @@
 			var pwd = prompt("비밀번호를 입력하세요");
 			var bpassword = "${board.bpassword}";
 			if(pwd == bpassword){
-				location.href="boarddelete?bnumber"+ ${board.bnumber};	
+				location.href="boarddelete?bnumber="+ ${board.bnumber};	
 			}else{
 				alert("비밀번호 불일치");
 			}
@@ -30,7 +30,7 @@
 	작성자 : ${board.bwriter}<br>
 	비밀번호 : ${board.bpassword}<br>
 	제목 : ${board.btitle}<br>
-	내용 : ${board.bcontemts}<br>
+	내용 : ${board.bcontents}<br>
 	작성시간 : ${board.bdate}<br>
 	조회수 : ${board.bhits}<br>
 	첨부파일 : ${board.bfilename}<br>

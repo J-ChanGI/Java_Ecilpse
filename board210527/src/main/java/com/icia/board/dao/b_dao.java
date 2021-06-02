@@ -38,19 +38,17 @@ public class b_dao {
 		return sql.selectOne("board.boardview", bnumber);
 	}
 
-	public b_dto boardupdate(int bnumber) {
-		System.out.println("update 수정요청 디에이오");
-		return sql.selectOne("board.boardupdate");
-	}
 
-	public int updateprocess(b_dto board) {
+
+	public int updateprocess(b_dto b_dto) {
 		System.out.println("update 수정처리 디에이오");
-		return sql.selectOne("board.boardupdateprocess", board);
+		return sql.update("board.boardupdate", b_dto);
 	}
-
+	
+	
 
 	public int boardelete(int bnumber) {
-		
+		System.out.println("삭제 dao");
 		return sql.delete("board.boarddelete", bnumber);
 	}
 
@@ -73,6 +71,8 @@ public class b_dao {
 		
 		return sql.selectList("board.boardsearch", searchmap);
 	}
+
+
 
 
 
