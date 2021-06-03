@@ -11,5 +11,9 @@
 		로그인 아이디 : ${sessionScope.memboardlogin}<br>
  		<a href="mbviewpage">회원정보</a><br>
  		<a href="mywritepage">내가 쓴 글보기</a>
+ 		
+ 		<c:if test="${sessionScope.memboardlogin eq 'admin' }">
+ 		<a href="mblist">회원목록(관리자용)</a>
+		</c:if>
 </body>
 </html>

@@ -2,11 +2,14 @@ package com.icia.memboard.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.memboard.dto.memboardDTO;
@@ -19,6 +22,9 @@ public class memboardController {
 	private memboardService mbs;
 	
 	private ModelAndView mav;
+	
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping(value="/memberjoin") // 회원가입 화면 띄우기
 	public String memberjoin() {
@@ -53,24 +59,51 @@ public class memboardController {
 	 System.out.println("엠비뷰");
 		return "mbview";
 	}
-//	@RequestMapping(value="/mbview") // 회원 정보 view 
-//	public ModelAndView mbview(@RequestParam("mid")String mid) {
-//		System.out.println("view 컨트롤 " + mid);
-//		mav = mbs.mbview(mid);
-//		return mav;
-//	}
-	@RequestMapping(value="/memboardupdate")
+
+	@RequestMapping(value="/memboardupdate") // 수정 요청
 	public ModelAndView update() {
 		System.out.println("update 컨트롤");
 		mav = mbs.update();
 		return mav;
 	}
 	
-	@RequestMapping(value="/updateprocess")
+	@RequestMapping(value="/updateprocess") // 수정 처리 
 	public ModelAndView updateprocess (@ModelAttribute memboardDTO memboard) {
 		System.out.println("updateprocess 컨트롤");
 		mav = mbs.updateprocess(memboard);
 		return mav;
+	}
+	
+	@RequestMapping(value="/incheck") // 아이디 중복
+	public @ResponseBody String idcheck(@RequestParam("mid") String mid) {
+		String result = mbs.idcheck(mid);
+		return result;
+	}
+	@RequestMapping(value="/memboardlist") //회원목록
+	public ModelAndView mblist() {
+		System.out.println("list 컨트롤");
+	mav = mbs.mblist();
+		return mav;
+	}
+		
+	@RequestMapping(value="/infor") //회원정보 view 
+	public ModelAndView infor(@RequestParam("mid")String mid) {
+		System.out.println("infor 컨트롤");
+		mav = mbs.infor(mid);
+		return mav;
+	}
+	
+	@RequestMapping(value="/mbdelete") //삭제
+	public ModelAndView mbdelete(@RequestParam("mid") String mid) {
+		System.out.println("delete 컨트롤");
+		mav = mbs.mbdelete(mid);
+		return  mav;
+	}
+	@RequestMapping(value="/logout") //로그아웃
+	public String logout() {
+		session.invalidate();
+		return "hoem";
+		
 	}
 	
 	}

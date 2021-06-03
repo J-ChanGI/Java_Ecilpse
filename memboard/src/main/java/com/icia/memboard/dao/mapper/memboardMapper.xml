@@ -19,6 +19,22 @@
 	<update id="memboardupdateprocess" parameterType="memboarddto">
 		UPDATE MEMBOARD210602 SET MNAME=#{mname},MNUMBER=#{mnumber},MEMAIL=#{memail},MFILENAME=#{mfilename} WHERE MID=#{mid}
 	</update>
+	
+	<select id="memboardidcheck" parameterType="String" resultType="String">
+		SELECT MID FROM MEMBOARD210602 WHERE MID=#{mid}
+	</select>
+	
+	<select id="memboardlist" resultType="memboarddto">
+		SELECT * FROM MEMBOARD210602 		
+	</select>
+	<select id="memboardinfor" parameterType="String" resultType="memboarddto">
+		SELECT * FROM MEMBOARD210602 WHERE MID=#{mid}
+	</select>
+	<delete id="memboarddelete" parameterType="String">
+		DELETE FROM MEMBOARD210602 WHERE MID=#{mid}
+	</delete>
+	
+	
  </mapper>
  
  

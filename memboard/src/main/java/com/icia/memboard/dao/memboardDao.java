@@ -1,5 +1,7 @@
 package com.icia.memboard.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,6 +32,29 @@ public class memboardDao {
 		System.out.println("updateprocess 디에이오");
 		return sql.update("mb.memboardupdateprocess", memboard);
 	}
+
+	public String idcheck(String mid) {
+		System.out.println("idcheck 디에이오");
+		return sql.selectOne("mb.memboardidcheck",mid);
+	}
+
+	public List<memboardDTO> mblist() {
+		System.out.println("list 디에이오");
+		return sql.selectList("mb.memboardlist");
+	}
+
+	public memboardDTO infor(String mid) {
+		System.out.println("infor 디에이오");
+		return sql.selectOne("mb.memboardinfor",mid);
+	}
+
+	public void mbdelete(String mid) {
+		System.out.println("delete 디에이오");
+		sql.delete("mb.memboarddelete", mid);
+	}
+
+	
+	
 
 //	public memboardDTO mbview(String mid) {
 //		System.out.println("view 디에이오");

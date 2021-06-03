@@ -2,6 +2,7 @@ package com.icia.memboard.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -64,15 +65,7 @@ public class memboardService {
 		
 		return mav;
 	}
-//	public ModelAndView mbview(String mid) {
-//		mav = new ModelAndView();
-//		System.out.println("view 서비스 " + mid);
-//		memboardDTO memboard = mbdao.mbview(mid);
-//		
-//		mav.addObject("memboardview" ,memboard);
-//		mav.setViewName("mbview");
-//		return mav;
-//	}
+
 	public ModelAndView update() {
 		mav = new ModelAndView();
 		System.out.println("update 서비스");
@@ -92,6 +85,45 @@ public class memboardService {
 		}else {
 			mav.setViewName("updatefali");
 		}
+		return mav;
+	}
+	public String idcheck(String mid) {
+		String checkResult = mbdao.idcheck(mid);
+		
+		String result = "";
+		if(checkResult ==null) {
+			result = "ok";
+		}else {
+			result = "no";
+		}
+		System.out.println("idcheck 서비스");
+		return result;
+	}
+	public ModelAndView mblist() {
+		System.out.println("list 서비스");
+		mav = new ModelAndView();
+		List<memboardDTO> mboardlist = mbdao.mblist();
+		
+		mav.addObject("mblist", mboardlist);
+		mav.setViewName("mblist");
+		return mav;
+	}
+	public ModelAndView infor(String mid) {
+		System.out.println("infor 서비스");
+		mav = new ModelAndView();
+		
+		memboardDTO memboard = mbdao.infor(mid);
+		mav.addObject("result", memboard);
+		mav.setViewName("infor");
+		
+		return mav;
+	}
+	public ModelAndView mbdelete(String mid) {
+		System.out.println("delete 서비스");
+		mav = new ModelAndView();
+		mbdao.mbdelete(mid);		
+		
+		mav.setViewName("redirect:/mblist");
 		return mav;
 	}
 

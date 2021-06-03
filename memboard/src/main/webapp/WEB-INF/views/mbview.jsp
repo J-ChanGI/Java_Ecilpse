@@ -9,12 +9,17 @@
 		function update(){
 			location.href="memboardupdate";
 		}
+		function logout(){
+			loaction.href="logout";			
+		}
+		
 	</script>
 	
 	
 </head>
 <body>
 	로그인 아이디 : ${sessionScope.memboardlogin}<br>
+	
 	<h2>회원정보</h2>
 		아이디 : ${memboardview.mid }<br>
 		비밀번호 : ${memboardview.mpassword }<br>
@@ -24,6 +29,6 @@
 		프로필사진 : ${memboardview.mfilename }<br>
 		
 	<button onclick="update()">회원정보수정</button><br>
-	
+	<button onclick="logout()">로그아웃</button><br>
 </body>
 </html>
