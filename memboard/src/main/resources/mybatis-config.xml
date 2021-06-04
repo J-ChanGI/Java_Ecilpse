@@ -4,5 +4,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.icia.memboard.dto.memboardDTO" alias="memboarddto"/>
+		<typeAlias type="com.icia.memboard.dto.boardDTO" alias="boarddto"/>
 	</typeAliases>
 </configuration>

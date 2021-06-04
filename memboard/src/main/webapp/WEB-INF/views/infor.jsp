@@ -10,11 +10,11 @@
 	<h2>회원정보상세조회</h2><br>
 	
 	<h2>회원정보</h2><br>
-		아이디 : ${mblist.mid}<br>
-		비밀번호 : ${mblist.mpassword }<br>
-		이름 : ${mblist.mname }<br>
-		전화번호 : ${mblist.mnumber }<br>
-		이메일 : ${mblist.memail }<br>
-		프로필사진 : ${mblist.mfeilname }<br>
+		아이디 : ${infor.mid}<br>
+		비밀번호 : ${infor.mpassword}<br>
+		이름 : ${infor.mname}<br>
+		전화번호 : ${infor.mnumber}<br>
+		이메일 : ${infor.memail}<br>
+		프로필사진 : ${infor.mfilename}<br>
 </body>
 </html>	

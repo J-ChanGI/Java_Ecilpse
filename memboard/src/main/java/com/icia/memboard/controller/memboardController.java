@@ -54,20 +54,20 @@ public class memboardController {
 		return "mypage";
 	}
 	
-	@RequestMapping(value="/mbviewpage") // 회원정보 페이지  띄우기
+	@RequestMapping(value="/mbviewpage") // 회원정보 페이지  view  띄우기
 	public String mbview() {
 	 System.out.println("엠비뷰");
 		return "mbview";
 	}
 
-	@RequestMapping(value="/memboardupdate") // 수정 요청
+	@RequestMapping(value="/memboardupdate") // 수정 요청 view 안에 존재
 	public ModelAndView update() {
 		System.out.println("update 컨트롤");
 		mav = mbs.update();
 		return mav;
 	}
 	
-	@RequestMapping(value="/updateprocess") // 수정 처리 
+	@RequestMapping(value="/updateprocess") // 수정 처리 view 안에 존재
 	public ModelAndView updateprocess (@ModelAttribute memboardDTO memboard) {
 		System.out.println("updateprocess 컨트롤");
 		mav = mbs.updateprocess(memboard);
@@ -79,21 +79,23 @@ public class memboardController {
 		String result = mbs.idcheck(mid);
 		return result;
 	}
-	@RequestMapping(value="/memboardlist") //회원목록
+		
+	
+	@RequestMapping(value="/mblist") //회원목록 관리자용 // mblist.jsp
 	public ModelAndView mblist() {
 		System.out.println("list 컨트롤");
 	mav = mbs.mblist();
 		return mav;
 	}
 		
-	@RequestMapping(value="/infor") //회원정보 view 
+	@RequestMapping(value="/infor") //회원정보 infor.jsp
 	public ModelAndView infor(@RequestParam("mid")String mid) {
 		System.out.println("infor 컨트롤");
 		mav = mbs.infor(mid);
 		return mav;
 	}
 	
-	@RequestMapping(value="/mbdelete") //삭제
+	@RequestMapping(value="/mbdelete") //삭제  // mblist.jsp 안에 있음
 	public ModelAndView mbdelete(@RequestParam("mid") String mid) {
 		System.out.println("delete 컨트롤");
 		mav = mbs.mbdelete(mid);
@@ -101,8 +103,9 @@ public class memboardController {
 	}
 	@RequestMapping(value="/logout") //로그아웃
 	public String logout() {
+		System.out.println("로그아웃");
 		session.invalidate();
-		return "hoem";
+		return "home";
 		
 	}
 	

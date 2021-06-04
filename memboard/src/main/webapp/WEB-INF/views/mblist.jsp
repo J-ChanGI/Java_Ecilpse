@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,16 +32,16 @@
 			<th>프로필사진</th>			
 		</tr>
 	
-		<c:forEach var = "mblist" items="${memboardlist }">
+		<c:forEach var = "mem" items="${memboardlist}">
 			<tr>
-				<td>${mblist.mid}</td>
-				<td>${mblist.mpassword}</td>
-				<td>${mblist.mname}</td>
-				<td>${mblist.mnumber}</td>
-				<td>${mblist.memail}</td>
-				<td>${mblist.mfilename}</td>
-			<td><a href= "infor?mid=${mblist.mid }">조회</a>
-			<td><button onclick="deletefn('${mblist.mid }')">삭제</button></td>
+				<td>${mem.mid}</td>
+				<td>${mem.mpassword}</td>
+				<td>${mem.mname}</td>
+				<td>${mem.mnumber}</td>
+				<td>${mem.memail}</td>
+				<td>${mem.mfilename}</td>
+			<td><a href= "infor?mid=${mem.mid }">조회</a>
+			<td><button onclick="deletefn('${mem.mid }')">삭제</button></td>
 			</tr>
 			
 		</c:forEach>

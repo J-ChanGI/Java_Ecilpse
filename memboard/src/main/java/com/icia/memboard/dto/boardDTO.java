@@ -4,12 +4,28 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class boardDTO {
 	
+		private int bnumber;
+		private String bwriter;
 		private String btitle;
 		private String bcontents;
+		private String bdate;
+		private int bhits;
+	
 		private MultipartFile bfile;
 		private String bfilename;
 		
-		
+		public int getBnumber() {
+			return bnumber;
+		}
+		public void setBnumber(int bnumber) {
+			this.bnumber = bnumber;
+		}
+		public String getBwriter() {
+			return bwriter;
+		}
+		public void setBwriter(String bwriter) {
+			this.bwriter = bwriter;
+		}
 		public String getBtitle() {
 			return btitle;
 		}
@@ -21,6 +37,18 @@ public class boardDTO {
 		}
 		public void setBcontents(String bcontents) {
 			this.bcontents = bcontents;
+		}
+		public String getBdate() {
+			return bdate;
+		}
+		public void setBdate(String bdate) {
+			this.bdate = bdate;
+		}
+		public int getBhits() {
+			return bhits;
+		}
+		public void setBhits(int bhits) {
+			this.bhits = bhits;
 		}
 		public MultipartFile getBfile() {
 			return bfile;
@@ -36,9 +64,13 @@ public class boardDTO {
 		}
 		@Override
 		public String toString() {
-			return "boardDTO [btitle=" + btitle + ", bcontents=" + bcontents + ", bfile=" + bfile + ", bfilename="
+			return "boardDTO [bnumber=" + bnumber + ", bwriter=" + bwriter + ", btitle=" + btitle + ", bcontents="
+					+ bcontents + ", bdate=" + bdate + ", bhits=" + bhits + ", bfile=" + bfile + ", bfilename="
 					+ bfilename + "]";
 		}
+		
+		
+		
 		
 		
 	

@@ -37,7 +37,7 @@ public class memboardService {
 		
 		mfilename = System.currentTimeMillis() + "-" + mfilename;
 		
-		String savePath = "D:\\Source_jj\\spring\\memboard\\src\\main\\webapp\\resources\\upload" + mfilename;
+		String savePath = "C:\\Users\\user\\Desktop\\memboard\\src\\main\\webapp\\resources\\upload" + mfilename;
 		
 		if(!mfile.isEmpty()) {
 			mfile.transferTo(new File(savePath));
@@ -58,7 +58,7 @@ public class memboardService {
 						
 		if(loginId != null) {
 			session.setAttribute("memboardlogin", loginId);
-			mav.setViewName("memboardlist");
+			mav.setViewName("redirect:/writelist");
 		}else {
 			mav.setViewName("login");
 		}
@@ -104,16 +104,17 @@ public class memboardService {
 		mav = new ModelAndView();
 		List<memboardDTO> mboardlist = mbdao.mblist();
 		
-		mav.addObject("mblist", mboardlist);
-		mav.setViewName("mblist");
+		mav.addObject("memboardlist", mboardlist); // jsp 의 itmes
+		mav.setViewName("mblist"); // 출력할 화면 jsp 
 		return mav;
 	}
+	
 	public ModelAndView infor(String mid) {
 		System.out.println("infor 서비스");
 		mav = new ModelAndView();
 		
 		memboardDTO memboard = mbdao.infor(mid);
-		mav.addObject("result", memboard);
+		mav.addObject("infor", memboard);
 		mav.setViewName("infor");
 		
 		return mav;

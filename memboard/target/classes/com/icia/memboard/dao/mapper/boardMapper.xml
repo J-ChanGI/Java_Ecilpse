@@ -2,11 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="bm"> 
-
+ <mapper namespace="bw"> 
+	<insert id="boardwrite" parameterType="boarddto">
+		INSERT INTO BOARD210602 (BNUMBER, BWRITER, BTITLE, BCONTENTS, BFILENAME, BDATE, BHITS) 
+			VALUES (BOARD210602_SEQ1.NEXTVAL,#{bwriter},#{btitle},#{bcontents},#{bfilename},SYSDATE,0)	
+	</insert>
+	<select id="boardlist" resultType="boarddto">
+		SELECT * FROM BOARD210602	
+	</select>	
+	
+	<update id="boardhits" parameterType="int">
+		UPDATE BOARD210602 SET BHITS = BHITS +1 WHERE BNUMBER=#{bnumber}	
+	</update>
+	<select id="boardview" parameterType="int" resultType="boarddto">
+		SELECT * FROM BOARD210602 WHERE BNUMBER=#{bnumber}	
+	</select>
+	<update id="boardupdateprocess" parameterType="boarddto">
+		UPDATE BOARD210602 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents},BFILENAME=#{bfilename} WHERE BNUMBER=#{bnumber}	
+	</update>
 	
  </mapper>
- 
  
  
  

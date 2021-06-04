@@ -10,7 +10,7 @@
 			location.href="memboardupdate";
 		}
 		function logout(){
-			loaction.href="logout";			
+			location.href="logout";			
 		}
 		
 	</script>

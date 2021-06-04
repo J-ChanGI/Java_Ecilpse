@@ -23,22 +23,22 @@ public class memboardDao {
 		return sql.selectOne("mb.memboardlogin", memboard);
 	}
 
-	public memboardDTO update(String loginId) {
+	public memboardDTO update(String loginId) { //수정 요청		
 		System.out.println("update 디에이오");
 		return sql.selectOne("mb.memboardupdate" ,loginId);
 	}
 
-	public int updateprocess(memboardDTO memboard) {
+	public int updateprocess(memboardDTO memboard) { //수정 처리
 		System.out.println("updateprocess 디에이오");
 		return sql.update("mb.memboardupdateprocess", memboard);
 	}
 
-	public String idcheck(String mid) {
+	public String idcheck(String mid) {  // 중복체크
 		System.out.println("idcheck 디에이오");
 		return sql.selectOne("mb.memboardidcheck",mid);
 	}
 
-	public List<memboardDTO> mblist() {
+	public List<memboardDTO> mblist() {	
 		System.out.println("list 디에이오");
 		return sql.selectList("mb.memboardlist");
 	}
