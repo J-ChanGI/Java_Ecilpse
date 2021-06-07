@@ -5,5 +5,7 @@
 	<typeAliases>
 		<typeAlias type="com.icia.memboard.dto.memboardDTO" alias="memboarddto"/>
 		<typeAlias type="com.icia.memboard.dto.boardDTO" alias="boarddto"/>
+		<typeAlias type="com.icia.memboard.dto.pageDTO" alias="pagedto"/>
+		<typeAlias type="com.icia.memboard.dto.CommentDTO" alias="commentdto"/>
 	</typeAliases>
 </configuration>

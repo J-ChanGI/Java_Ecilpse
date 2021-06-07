@@ -54,17 +54,42 @@ public class boardController {
 	// 수정 요청
 	@RequestMapping(value="/bviewupdate")
 	public ModelAndView bviewupdate(@RequestParam("bnumber")int bnumber) {
-		System.out.println("update 컨트롤");
+		System.out.println("update 컨트롤" + bnumber);
 		mav = bs.bviewupdate(bnumber);
 		return mav;
 	}
 	// 수정 처리
 	@RequestMapping(value="/boardupdateprocess")
 	public ModelAndView boardupdateprocess(@ModelAttribute boardDTO board) {
-		System.out.println("boardupdate process 컨트롤");
+		System.out.println("boardupdate process 컨트롤" + board);
 		mav = bs.boardupdateprocess(board);
 		return mav ;
 	}
+	//삭제
+	@RequestMapping(value="/bdelete")
+	public ModelAndView bdelete(@RequestParam int bnumber) {
+		System.out.println("delete 컨트롤");
+		mav = bs.bdelete(bnumber);
+		return mav;
+	}
+	// 페이징 처리
+	@RequestMapping(value="/paging")
+	public ModelAndView boardpaging(@RequestParam(value="page", required=false, defaultValue="1") int page) {
+		mav= bs.boardpaging(page);
+		return mav;
+		
+	}
+	// 검색 기능
+	@RequestMapping(value="/search")
+	public ModelAndView boardsarch(@RequestParam("searchtype")String searchtype,
+									@RequestParam("keyword") String keyword) {
+		System.out.println("search 컨트롤");
+			mav = bs.boardsearch(searchtype,keyword);
+			return mav ;
+	}
+	
+	
+	
 	
 }
 	

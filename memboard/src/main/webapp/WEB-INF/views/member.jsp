@@ -12,8 +12,8 @@
 			$.ajax({
 				type : 'post',
 				url : 'idcheck',
-				date : {'mid' : inputId},
-				dateType : 'text',
+				data : {'mid' : inputId},
+				dataType : 'text',
 				success : function(result){
 					console.log("아이디중복확인");
 					if(result=="ok"){

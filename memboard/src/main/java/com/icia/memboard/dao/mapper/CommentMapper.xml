@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="cm"> 
+	<insert id="commentwrite" parameterType="commentdto">
+		INSERT INTO COMMENT210602(CNUMBER,CBNUMBER,CWRITER, CCONTENTS)
+		VALUES(COMMENT210602_SEQ.NEXTVAL,#{cbnumber},#{cwriter},#{ccontents})
+	</insert>
+	<select id="commentlist" parameterType="int" resultType="commentdto">
+		SELECT * FROM COMMENT210602 WHERE CBNUMBER=#{cbnumber} ORDER BY CNUMBER DESC
+	</select>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -17,9 +17,11 @@
 <body>
 		
 		로그인 아이디 : ${sessionScope.memboardlogin}<br>
-		<h2> 글 수정, 글 조회, 페이징, 글삭제, 검색기능 </h2>
+		
 		<a href="writepage">글작성</a><br>
 		<a href="mypages">마이페이지</a><br>
+		<a href="paging">페이징목록</a><br>
+				
 		<h2>글 목록 </h2>
 		<table>
 			<tr>
@@ -44,12 +46,7 @@
 				
 				</tr>
 			</c:forEach>	
-		</table>
-		
-		
-		<a>글조회</a><br>
-		<a>페이징</a><br>
-		<a>글삭제</a><br>
-		<a>검색</a>	<br>
+		</table><br>
+						
 </body>
 </html>
