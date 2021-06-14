@@ -1,5 +1,7 @@
 package com.icia.web.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,6 +36,21 @@ public class memberDao {
 	public int memberupdateprocess(memberDTO memberdto) {
 		System.out.println("memberupdateprocess 디에이오" + memberdto);
 		return sql.update("mb.memberupdateprocess", memberdto);
+	}
+
+	public List<memberDTO> memberlist() {
+		System.out.println("list 디에이오");
+		return sql.selectList("mb.memberlist");
+	}
+
+	public memberDTO memberview(String mid) {
+		System.out.println("view 디에이오" + mid);
+		return sql.selectOne("mb.memberview", mid);
+	}
+
+	public void memberdelete(String mid) {
+		System.out.println("delete 디에이오" + mid);
+		sql.delete("mb.memberdelete", mid);
 	}
 
 }

@@ -75,8 +75,23 @@ public class memberController {
 		return mav;
 	}
 	
-	
-	
-	
+	@RequestMapping(value="/memberlistjoin")// list 처리
+	public ModelAndView memberlist() {
+		System.out.println("list 컨트롤");
+		mav = ms.memberlist();
+		return mav;
+	}
+	@RequestMapping(value="/memberview") // view 
+	public ModelAndView memberview(@RequestParam("mid") String mid) {
+		System.out.println("view 컨트롤" + mid);
+		mav= ms.memberview(mid);
+		return mav;
+	}
+	@RequestMapping(value="/memberdelete")
+	public ModelAndView memberdelete(@RequestParam("mid") String mid) {
+		System.out.println("delete 컨트롤 "+mid);
+		mav = ms.memberdelete(mid);
+		return mav;
+	}
 	
 }	

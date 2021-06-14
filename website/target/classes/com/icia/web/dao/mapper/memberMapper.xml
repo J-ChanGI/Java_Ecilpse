@@ -18,6 +18,16 @@
 		<update id="memberupdateprocess" parameterType="memberdto">
 			UPDATE MEMBERSHIP SET MNAME=#{mname},MNUMBER=#{mnumber},MEMAIL=#{memail},MADDRESSNUMBER=#{maddressnumber},MROADADDRESS=#{mroadaddress},MLANDADDRESS=#{mlandaddress},MDATAILEDADDRESS=#{mdatailedaddress},MNOTE=#{mnote}
 		</update>
+		<select id="memberlist" resultType="memberdto">
+			SELECT * FROM MEMBERSHIP
+		</select>
+		<select id="memberview" parameterType="String" resultType="memberdto">
+			SELECT * FROM MEMBERSHIP WHERE MID=#{mid}
+		</select>
+		<delete id="memberdelete" parameterType="String">
+			DELETE FROM MEMBERSHIP WHERE MID=#{mid}		
+		</delete>
+		
  </mapper>
  
  

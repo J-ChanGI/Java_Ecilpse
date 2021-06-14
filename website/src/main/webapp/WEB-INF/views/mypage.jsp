@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,9 @@
 		<script>
 			function memberupdate(){
 				location.href="memberupdate"
+			}
+			function memberlistjoin(){
+				location.href="memberlistjoin"
 			}
 		</script>
 </head>
@@ -19,5 +23,8 @@
 	
 	
 	<button onclick="memberupdate()">회원정보수정</button>
+	<c:if test="${sessionScope.login eq 'admin' }">
+	<button onclick="memberlistjoin()">회원 전체 목록 (관리자용)</button>
+	</c:if>
 </body>
 </html>

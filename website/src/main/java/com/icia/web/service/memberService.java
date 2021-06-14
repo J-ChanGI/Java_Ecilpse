@@ -1,5 +1,7 @@
 package com.icia.web.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,8 @@ public class memberService {
 		if(insertResult > 0) {
 			mav.setViewName("/home");
 		}else {
-			mav.setViewName("joinfail");
+			mav.setViewName("membership");
+			
 		}
 		
 		return mav;
@@ -85,6 +88,34 @@ public class memberService {
 			mav.setViewName("updatefail");
 		}
 		
+		return mav;
+	}
+
+	public ModelAndView memberlist() {
+		System.out.println("list 서비스");
+		mav = new ModelAndView();
+		List<memberDTO> memberlist = mdao.memberlist();
+		
+		mav.addObject("memberlist",memberlist);
+		mav.setViewName("memberlist");
+		return mav;
+	}
+
+	public ModelAndView memberview(String mid) {
+		System.out.println("view 서비스 "+ mid);
+		mav = new ModelAndView();
+		
+		memberDTO memberdto = mdao.memberview(mid);
+		mav.addObject("memberview",memberdto); // 
+		mav.setViewName("memberview");  // 출려할 jsp
+		return mav;
+	}
+
+	public ModelAndView memberdelete(String mid) {
+		System.out.println("delete 서비스" + mid);
+		mav = new ModelAndView();
+		mdao.memberdelete(mid);
+		mav.setViewName("memberlist");
 		return mav;
 	}
 	
