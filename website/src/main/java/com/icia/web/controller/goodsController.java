@@ -6,16 +6,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class goodsController {
 
-	@RequestMapping(value="/goods1join")
-	public String goods1join() {
-		return "goods1";
+	@RequestMapping(value="/store")
+	public String store() {
+		return "categorystore";
 	}
-	@RequestMapping(value="/goods2join")
-	public String goods2join() {
-		return "goods2";
+	@RequestMapping(value="/categorycoffie")
+	public String categorycoffie() {
+		return "categorycoffie";
 	}
-	@RequestMapping(value="/goods3join")
-	public String goods3join() {
-		return "goods3";
+	@RequestMapping(value="/categorypizza/chickin")
+	public String categorypizza_chickin() {
+		return "categorypizza_chickin";
 	}
+	@RequestMapping(value="/categoryfastfood")
+	public String categoryfastfood() {
+		return "categoryfastfood";
+	}
+	@RequestMapping(value="/categorybakery")
+	public String categorybakery() {
+		return "categorybakery";
+	}
+
 }
