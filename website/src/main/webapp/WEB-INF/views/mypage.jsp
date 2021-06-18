@@ -13,6 +13,9 @@
 			function memberlistjoin(){
 				location.href="memberlistjoin"
 			}
+			function goodsuploadjoin(){
+				location.href="goodsuploadjoin"
+			}
 		</script>
 </head>
 <body>
@@ -25,6 +28,7 @@
 	<button onclick="memberupdate()">회원정보수정</button>
 	<c:if test="${sessionScope.login eq 'admin' }">
 	<button onclick="memberlistjoin()">회원 전체 목록 (관리자용)</button>
+	<button onclick="goodsuploadjoin()">상품등록(관리자용)</button>
 	</c:if>
 </body>
 </html>

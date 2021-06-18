@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
+
+
 	<style>
 		#loginbar{
 			background-color: red;	
@@ -12,6 +15,9 @@
 		}
 		#category{
 			background-color : blue;
+		}
+		#event{
+			background-color : green;
 		}
 		
 	</style>
@@ -29,25 +35,13 @@
 			function mypagejoin(){
 				location.href="mypagejoin"
 			}
-			
-	<!--		function recommendCategory(category) {
-	            $("#category").val(category);
-
-	            let form = document.recommendation;
-	            form.submit();
-			} -->	
-			function recommendcategory('편의점')(){
-				location.href="store"
-			}
-			
- 			
 		</script>
 	
 </head>
 <body>
 	<div id="tool">	
 		<div id="nav">
-			<a href="#">사이트</a> 
+			<a href="">사이트</a> 
 		
 		</div>
 		
@@ -62,77 +56,56 @@
 			<button onclick="logout()">로그아웃</button>
 		</div>
 		
-		<div class="main_contents">
+		<div >
+			<div id="event">
+				<h2>다다</h2>
+			
+			</div>
+			
+			<div id="category">
+			<h3>카테고리</h3>
+				<form>
+				<ui>
+			<!--    <li><input onchange="searchli()" type="checkbox" name="a" value="상품권/생활편의/기타" id="A1"><label for="A1">상품권/생활편의/기타</lebal></li>
+					<li><input onchange="searchli()" type="checkbox" name="b" value="편의점" id="A2"><label for="A2">편의점</label></li>
+					<li><input onchange="searchli()" type="checkbox" name="c" value="치킨/피자" id="A3">치킨/피자</li>-->
+					
+                                <li class="">
+                                    <a href="#" onclick="">
+                                        <div class=""><span>
+                                            <img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
+                                        </div>
+                                        <div class="">
+
+                                            편의점
+                                        </div>
+                                    </a>
+                                </li>
+				
+				
+				
+				
+				</ui>	
+				</form>
+			</div>
+			
 			<div>
-				<h2>상품카테고리</h2>
-				<div>
-					<div class="">
-						<ui>
-							<li class="icon_cate_li">
-								<a href="#" onclick="recommendcategory('편의점');">
-								<div>
-									<span>
-										<img src="C:\Users\Administrator\Desktop\store.png" alt="편의점">
-									</span>
-								</div>
-								<div>
-									" 편의점 "
-								</div>
-								</a>
-							</li>  <!--   -->
-								<li class="icon_cate_li">
-								<a href="#" onclick="recommendcategory(커피/음료)">
-								<div>
-									<span>
-										<img src="C:\Users\Administrator\Desktop\store.png" alt="커피/음료">
-									</span>
-								</div>
-								<div>
-									" 커피/음료 "
-								</div>
-								</a>
-							</li>	
-							<li class="icon_cate_li">
-								<a href="#" onclick="recommendcategory(패스트푸드)">
-								<div>
-									<span>
-										<img src="C:\Users\Administrator\Desktop\store.png" alt="패스트푸드">
-									</span>
-								</div>
-								<div>
-									" 패스트푸드 "
-								</div>
-								</a>
-							</li>
-								<li class="icon_cate_li">
-								<a href="#" onclick="recommendcategory(베이커리/도넛)">
-								<div>
-									<span>
-										<img src="C:\Users\Administrator\Desktop\store.png" alt="베이커리/도넛">
-									</span>
-								</div>
-								<div>
-									" 베이커리/도넛 "
-								</div>
-								</a>
-							</li>
-								<li class="icon_cate_li">
-								<a href="#" onclick="recommendcategory(상품권/생활편의/기타)">
-								<div>
-									<span>
-										<img src="C:\Users\Administrator\Desktop\store.png" alt="상품권/생활편의/기타">
-									</span>
-								</div>
-								<div>
-									" 상품권/생활편의/기타 "
-								</div>
-								</a>
-							</li>
-						</ui>
-					</div>
-				</div>
-			</div>	
+			
 		
+
+			</div>
+		</div>
+		
+		<div id="goods">
+			<h2>전체상품</h2>
+			
+			<c:forEach var = "goods" items="${goodslist}">
+				<tr>
+					<td>${goods.goodsname}</td>
+										
+				</tr>				
+			</c:forEach>
+			
 		</div>
 	
 		

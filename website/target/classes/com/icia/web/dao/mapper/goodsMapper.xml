@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="goods"> 
+	<insert id="goodsupload" parameterType="goodsdto">
+		INSERT INTO GOODSLIST (GOODSNAME, GOODSPRICE, GOODSBRAND, CATENAME,GOODSNUMBER) 
+		VALUES(#{goodsname},#{goodsprice},#{goodsbrand},#{catename},GOODS_SEQ.NEXTVAL)
+	</insert>
+	<select id="goodslist" resultType="goodsdto">
+		SELECT * FROM GOODSLIST
+	</select>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
