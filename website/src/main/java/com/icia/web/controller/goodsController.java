@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.web.dto.goodsDTO;
@@ -35,8 +36,17 @@ public class goodsController {
 		mav = gs.goodslist();
 		return mav;
 	}
-//	@RequestMapping(value="goodslistjoin") // 상품리스트로 이동
-//	public String goodslistjoin() {
-//		return "goodslist";
-//	}
+
+	@RequestMapping(value="/goodslistjoin") //상품리스트로 이동
+	public String goodslistjoin() {
+		return "goodslist";
+	}
+	
+	@RequestMapping(value="/search")  // 검색기능
+	public ModelAndView goodssearch(@RequestParam("keyword") String keyword) {
+		System.out.println("search 컨트롤"+ keyword);
+		mav = gs.goodssearch(keyword);
+		return mav;
+	}
+
 }

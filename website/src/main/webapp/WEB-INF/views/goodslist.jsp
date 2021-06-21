@@ -9,13 +9,20 @@
 
 </head>
 <body>
-
-			
+		<table>
+				<tr>
+					<th>상품이름</th>
+				</tr>
 			<c:forEach var = "goods" items="${goodslist}">
 				<tr>
-					<td>${goods.goodsname}</td>
+					<td><a>${goods.goodsname}</a></td>
 										
 				</tr>				
 			</c:forEach>
+			
+			</table>
+		
+			
+			
 </body>
 </html>

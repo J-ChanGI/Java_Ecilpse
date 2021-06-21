@@ -10,6 +10,19 @@
 	<select id="goodslist" resultType="goodsdto">
 		SELECT * FROM GOODSLIST
 	</select>
+	
+	<select id="goodssearch" parameterType="String" resultType="goodsdto">
+		SELECT * FROM GOODSLIST
+			<include refid="search"></include>
+	</select>
+	
+	<sql id="search">
+		<choose>
+		<when test="type == 'catename'">
+			WHERE CATENAME LIKE '%' ||#{word}||'%'
+		</when>
+		</choose>
+	</sql>
  </mapper>
  
  

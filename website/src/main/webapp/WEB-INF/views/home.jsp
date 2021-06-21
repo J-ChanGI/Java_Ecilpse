@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
+<meta charset="UTF-8">
 <head>
 
 
@@ -35,6 +36,9 @@
 			function mypagejoin(){
 				location.href="mypagejoin"
 			}
+			function goodslistjoin(){
+				location.href="goodslistjoin"
+			}
 		</script>
 	
 </head>
@@ -55,7 +59,11 @@
 			</c:if>
 			<button onclick="logout()">로그아웃</button>
 		</div>
-		
+			<form action="search" method="get">
+				<input type="text" name="keyword">
+				<input type="submit" value="검색">
+			</form>>
+			
 		<div >
 			<div id="event">
 				<h2>다다</h2>
@@ -71,16 +79,28 @@
 					<li><input onchange="searchli()" type="checkbox" name="c" value="치킨/피자" id="A3">치킨/피자</li>-->
 					
                                 <li class="">
-                                    <a href="#" onclick="">
+                                    <a href="goodslist?catename=${goods.catename}" onclick="goodslistjoin()">
                                         <div class=""><span>
                                             <img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
                                         </div>
                                         <div class="">
 
-                                            편의점
+                                            음료
                                         </div>
                                     </a>
                                 </li>
+                                 <li class="">
+                                    <a href="goodslist?catename=${goods.catename}" onclick="goodslistjoin()">
+                                        <div class=""><span>
+                                            <img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
+                                        </div>
+                                        <div class="">
+
+                                           치킨
+                                        </div>
+                                    </a>
+                                </li>
+				
 				
 				
 				
@@ -98,16 +118,8 @@
 		
 		<div id="goods">
 			<h2>전체상품</h2>
-			
-			<c:forEach var = "goods" items="${goodslist}">
-				<tr>
-					<td>${goods.goodsname}</td>
-										
-				</tr>				
-			</c:forEach>
-			
-		</div>
-	
+				
+			<a href=""><img src="">아메리카노 </a>
 		
 		
 		

@@ -1,6 +1,8 @@
 package com.icia.web.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,17 @@ public class goodsService {
 		
 		mav.addObject("goodslist", goodslist);
 		mav.setViewName("goodslist");
+		
+		return mav;
+	}
+
+	public ModelAndView goodssearch(String keyword) {
+		System.out.println("search 서비스" + keyword);
+		mav = new ModelAndView();
+	
+		mav = gd.goodssearch(keyword);
+		
+		
 		
 		return mav;
 	}
