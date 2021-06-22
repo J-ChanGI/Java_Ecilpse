@@ -9,13 +9,17 @@
 
 </head>
 <body>
+<div>
+<a href=".">사이트</a><br>
+</div>	
+<div>
 		<table>
 				<tr>
 					<th>상품이름</th>
 				</tr>
 			<c:forEach var = "goods" items="${goodslist}">
 				<tr>
-					<td><a>${goods.goodsname}</a></td>
+					<td><a href="goodsname=${goods.goodsname}">${goods.goodsname}</a></td>
 										
 				</tr>				
 			</c:forEach>
@@ -23,6 +27,6 @@
 			</table>
 		
 			
-			
+</div>			
 </body>
 </html>

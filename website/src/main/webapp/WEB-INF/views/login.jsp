@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href=".">사이트</a>
 	<form action="login" method="post">
 	아이디 : <input type="text" name="mid"><br>
 	비밀번호 : <input type="password" name="mpassword"><br>

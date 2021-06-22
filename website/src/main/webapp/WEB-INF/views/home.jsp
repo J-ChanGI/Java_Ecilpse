@@ -36,9 +36,7 @@
 			function mypagejoin(){
 				location.href="mypagejoin"
 			}
-			function goodslistjoin(){
-				location.href="goodslistjoin"
-			}
+			
 		</script>
 	
 </head>
@@ -62,7 +60,7 @@
 			<form action="search" method="get">
 				<input type="text" name="keyword">
 				<input type="submit" value="검색">
-			</form>>
+			</form>
 			
 		<div >
 			<div id="event">
@@ -73,39 +71,27 @@
 			<div id="category">
 			<h3>카테고리</h3>
 				<form>
-				<ui>
-			<!--    <li><input onchange="searchli()" type="checkbox" name="a" value="상품권/생활편의/기타" id="A1"><label for="A1">상품권/생활편의/기타</lebal></li>
-					<li><input onchange="searchli()" type="checkbox" name="b" value="편의점" id="A2"><label for="A2">편의점</label></li>
-					<li><input onchange="searchli()" type="checkbox" name="c" value="치킨/피자" id="A3">치킨/피자</li>-->
-					
-                                <li class="">
-                                    <a href="goodslist?catename=${goods.catename}" onclick="goodslistjoin()">
-                                        <div class=""><span>
-                                            <img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
-                                        </div>
-                                        <div class="">
+				
+                     <a href="goodslist?catename=음료">
+                     	<div class=""><span>
+                     		<img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
+                     	</div>
+                    	<div class="">
 
-                                            음료
-                                        </div>
-                                    </a>
-                                </li>
-                                 <li class="">
-                                    <a href="goodslist?catename=${goods.catename}" onclick="goodslistjoin()">
-                                        <div class=""><span>
-                                            <img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
-                                        </div>
-                                        <div class="">
+                     		음료
+                     	</div>
+                     </a>
+                               
+                     <a href="goodslist?catename=치킨">
+                     	<div class=""><span>
+                     		<img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
+                     	</div>
+                     	<div class="">
 
-                                           치킨
-                                        </div>
-                                    </a>
-                                </li>
-				
-				
-				
-				
-				
-				</ui>	
+                      		치킨
+                     	</div>
+                     </a>
+                         
 				</form>
 			</div>
 			
@@ -119,10 +105,12 @@
 		<div id="goods">
 			<h2>전체상품</h2>
 				
-			<a href=""><img src="">아메리카노 </a>
+			<a href="goods1"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">아메리카노 </a>
+			<a href="goods2"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">스무디 </a>
+			<a href="goods3"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">황금올리브치킨 </a>
+			<a href="goods4"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">허니콤보치킨 </a>
 		
+	</div>
 		
-		
-	</div>	
 </body>
 </html>

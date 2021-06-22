@@ -30,23 +30,54 @@ public class goodsController {
 		mav = gs.goodsupload(goodsdto);
 		return mav;
 	}
-	@RequestMapping(value="/goodslist") // 전체 상품 리스트
-	public ModelAndView goodslist() {
-		System.out.println("goodslist 컨트롤");
-		mav = gs.goodslist();
+	@RequestMapping(value="/goodslist") // 카테고리별 상품 리스트 
+	public ModelAndView goodslist(@RequestParam("catename")String catename) {
+		System.out.println("goodslist 컨트롤" + catename);
+		mav = gs.goodslist(catename);
 		return mav;
 	}
 
-	@RequestMapping(value="/goodslistjoin") //상품리스트로 이동
-	public String goodslistjoin() {
-		return "goodslist";
-	}
-	
 	@RequestMapping(value="/search")  // 검색기능
 	public ModelAndView goodssearch(@RequestParam("keyword") String keyword) {
 		System.out.println("search 컨트롤"+ keyword);
 		mav = gs.goodssearch(keyword);
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value="/goods1") // 상품 상세페이지 (커피)
+	public String goods1view() {
+		return "goods1";
+	}
+
+	@RequestMapping(value="/goods2") // 상품 상세페이지 (스무디)
+	public String goods2view() {
+		return "goods2";
+	}
+
+	@RequestMapping(value="/goods3") // 상품 상세페이지 (황금올리브)
+	public String goods3view() {
+		return "goods3";
+	}
+
+	@RequestMapping(value="/goods4") // 상품 상세페이지 (허니콤보)
+	public String goods4view() {
+		return "goods4";
+	}
+//	@RequestMapping(value="/goods1")
+//	public ModelAndView goodsview1(@RequestParam("goodsname")String goodsname) {
+//		System.out.println("goods 커피 상세조회 컨트롤" + goodsname );
+//		mav = gs.goodsview1(goodsname);
+//		return mav;
+//	}
+
+	
+	
+	
+
 
 }

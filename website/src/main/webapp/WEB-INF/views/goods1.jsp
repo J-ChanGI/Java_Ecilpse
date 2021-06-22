@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,23 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>goods1</h2><br>
-	
-	<img src="C:\Users\user\Desktop\pictuer\고양이1.JPG" alt="My Image"><br>
-	
-	<div>
-		작성자 : <input type="text" id="cwriter" value="">
-		내용 : 
-		사진첨부 : <input type="file" id="cfilename">	
-		<button id="cwiter-btn">후기등록</button>
-	</div>
-	
-	
-	<div>
-		구매후기
-		
-	</div>
+<div>
+<a href=".">사이트</a>
+</div>
 
+	<h2>아메리카노</h2>
 	
+	<img src="C:\Users\user\Desktop\pictuer\고양이1.jpg" alt="아메리카노">
+	<div>
+		<div>
+			<div>
+				<h2>제품설명</h2>
+				아메리카노 스타벅스 예정 
+			</div>	
+		</div>
+			<div>
+				<h2>결제창</h2>
+			</div>
+	</div>
 </body>
 </html>

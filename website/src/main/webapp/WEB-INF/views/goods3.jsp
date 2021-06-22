@@ -7,15 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>goods1</h2><br>
+<div>
+<a href=".">사이트</a>
+</div>
+	<h2>황금올리브치킨</h2>
 	
-	<img src="C:\Users\user\Desktop\pictuer\고양이1.JPG" alt="My Image"><br>
-	
-	
-	
+	<img src="C:\Users\user\Desktop\pictuer\고양이1.jpg" alt="황금올리브치킨">
 	<div>
-		구매후기
+		<div>
+			<div>
+				<h2>제품설명</h2>
+				황금올리브치킨 bbq 예정 
+			</div>	
+		</div>
+			<div>
+				<h2>결제창</h2>
+			</div>
 	</div>
-	
 </body>
 </html>

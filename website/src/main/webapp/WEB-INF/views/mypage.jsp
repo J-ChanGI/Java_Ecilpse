@@ -19,6 +19,7 @@
 		</script>
 </head>
 <body>
+<a href=".">사이트</a>
 	<h2>마이페이지</h2>
 	로그인 아이디 : ${sessionScope.login}<br>
 	

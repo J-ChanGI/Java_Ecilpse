@@ -34,13 +34,18 @@ public class goodsService {
 		return mav;
 	}
 
-	public ModelAndView goodslist() {
-		System.out.println("goodslist 서비스");
+	public ModelAndView goodslist(String catename) {
+		System.out.println("goodslist 서비스" + catename);
 		mav = new ModelAndView();
-		List<goodsDTO> goodslist = gd.goodslist();
+//		goodsDTO goodsdto = gd.goodslist(catename);
 		
+		
+		
+		
+		List<goodsDTO> goodslist = gd.goodslist(catename);
+				
 		mav.addObject("goodslist", goodslist);
-		mav.setViewName("goodslist");
+		mav.setViewName("goodslist"); 
 		
 		return mav;
 	}
@@ -49,11 +54,24 @@ public class goodsService {
 		System.out.println("search 서비스" + keyword);
 		mav = new ModelAndView();
 	
-		mav = gd.goodssearch(keyword);
+		Map<String, String> searchMap= new HashMap<String, String>(); 
 		
+		searchMap.put("word", keyword);
 		
+		List<goodsDTO> goodslist = gd.goodssearch(searchMap);
 		
+		mav.addObject("goodslist", goodslist);
+		mav.setViewName("home");
 		return mav;
 	}
+
+//	public ModelAndView goodsview1(String goodsname) {
+//		System.out.println("goodsview1 커피 상세조회" + goodsname);
+//		mav = new ModelAndView();
+//		
+//		
+//		
+////		return mav;
+//	}
 	
 }

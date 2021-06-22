@@ -7,11 +7,12 @@
 		INSERT INTO GOODSLIST (GOODSNAME, GOODSPRICE, GOODSBRAND, CATENAME,GOODSNUMBER) 
 		VALUES(#{goodsname},#{goodsprice},#{goodsbrand},#{catename},GOODS_SEQ.NEXTVAL)
 	</insert>
-	<select id="goodslist" resultType="goodsdto">
-		SELECT * FROM GOODSLIST
+	<select id="goodslist" parameterType="String" resultType="goodsdto">
+		SELECT * FROM GOODSLIST WHERE CATENAME=#{catename}
+		
 	</select>
 	
-	<select id="goodssearch" parameterType="String" resultType="goodsdto">
+	<select id="goodssearch" parameterType="java.util.HashMap" resultType="goodsdto">
 		SELECT * FROM GOODSLIST
 			<include refid="search"></include>
 	</select>

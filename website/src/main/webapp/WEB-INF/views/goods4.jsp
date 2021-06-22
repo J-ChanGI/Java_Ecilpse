@@ -10,14 +10,14 @@
 <div>
 <a href=".">사이트</a>
 </div>
-	<h2>스무디</h2>
+	<h2>허니콤보치킨</h2>
 	
-	<img src="C:\Users\user\Desktop\pictuer\고양이1.jpg" alt="스무디">
+	<img src="C:\Users\user\Desktop\pictuer\고양이1.jpg" alt="허니콤보">
 	<div>
 		<div>
 			<div>
 				<h2>제품설명</h2>
-				스무디 이디야 예정 
+				허니콤보치킨 교촌치킨 예정 
 			</div>	
 		</div>
 			<div>

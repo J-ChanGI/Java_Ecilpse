@@ -1,6 +1,7 @@
 package com.icia.web.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,17 @@ public class goodsDao {
 		return sql.insert("goods.goodsupload", goodsdto);
 	}
 
-	public List<goodsDTO> goodslist() {
-		System.out.println("goodslist 디에이오");
-		return sql.selectList("goods.goodslist");
+	public List<goodsDTO> goodslist(String catename) {
+		System.out.println("goodslist 디에이오" + catename);
+		return sql.selectList("goods.goodslist", catename);
 	}
 
-	public ModelAndView goodssearch(String keyword) {
-		System.out.println("search 디에이오" + keyword);
-		return sql.selectOne("goods.goodssearch", keyword);
+
+	public List<goodsDTO> goodssearch(Map<String, String> searchMap) {
+		System.out.println("search 디에이오" + searchMap);
+		return sql.selectList("goods.goodssearch", searchMap);
 	}
+
+	
 	
 }
