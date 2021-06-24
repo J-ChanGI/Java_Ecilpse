@@ -19,7 +19,7 @@
 				</tr>
 			<c:forEach var = "goods" items="${goodslist}">
 				<tr>
-					<td><a href="goodsname=${goods.goodsname}">${goods.goodsname}</a></td>
+					<td><a href="goods?goodsnumber=${goods.goodsnumber}">${goods.goodsname}</a></td>
 										
 				</tr>				
 			</c:forEach>

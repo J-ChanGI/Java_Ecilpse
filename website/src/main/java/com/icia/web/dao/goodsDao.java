@@ -32,6 +32,21 @@ public class goodsDao {
 		return sql.selectList("goods.goodssearch", searchMap);
 	}
 
+	public goodsDTO goods(int goodsnumber) {
+		System.out.println("goods 디에이오" + goodsnumber);
+		return sql.selectOne("goods.goods" , goodsnumber );
+	}
+
+	public List<goodsDTO> homelist() {
+		System.out.println("homelist 디에이오");
+		return sql.selectList("goods.homelist");
+	}
+
+	public goodsDTO homegoods(int goodsnumber) {
+		System.out.println("homegoods 디에이오" + goodsnumber);
+		return sql.selectOne("goods.homegoods" , goodsnumber);
+	}
+
 	
 	
 }

@@ -37,10 +37,12 @@ public class goodsController {
 		return mav;
 	}
 
-	@RequestMapping(value="/search")  // 검색기능
-	public ModelAndView goodssearch(@RequestParam("keyword") String keyword) {
-		System.out.println("search 컨트롤"+ keyword);
-		mav = gs.goodssearch(keyword);
+	
+	
+	@RequestMapping(value="/goods")
+	public ModelAndView goods(@RequestParam("goodsnumber")int goodsnumber) {
+		System.out.println("goods 컨트롤 "  + goodsnumber);
+		mav = gs.goods(goodsnumber);
 		return mav;
 	}
 	
@@ -49,31 +51,28 @@ public class goodsController {
 	
 	
 	
-	@RequestMapping(value="/goods1") // 상품 상세페이지 (커피)
-	public String goods1view() {
-		return "goods1";
+	@RequestMapping(value="/search")  // 검색기능
+	public ModelAndView goodssearch(@RequestParam("keyword") String keyword,
+										@RequestParam("searchtype")String searchtype) {
+		System.out.println("search 컨트롤"+ keyword + searchtype);
+		mav = gs.goodssearch(keyword,searchtype);
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/")
+	public ModelAndView homelist() {
+		System.out.println("homelist 컨트롤");
+		mav = gs.homelist();
+		return mav;
 	}
 
-	@RequestMapping(value="/goods2") // 상품 상세페이지 (스무디)
-	public String goods2view() {
-		return "goods2";
+	@RequestMapping(value="/homegoods")
+	public ModelAndView homegoods(@RequestParam("goodsnumber")int goodsnumber) {
+		System.out.println("goods 컨트롤1" + goodsnumber);
+		mav = gs.homegoods(goodsnumber);
+		return mav;
 	}
-
-	@RequestMapping(value="/goods3") // 상품 상세페이지 (황금올리브)
-	public String goods3view() {
-		return "goods3";
-	}
-
-	@RequestMapping(value="/goods4") // 상품 상세페이지 (허니콤보)
-	public String goods4view() {
-		return "goods4";
-	}
-//	@RequestMapping(value="/goods1")
-//	public ModelAndView goodsview1(@RequestParam("goodsname")String goodsname) {
-//		System.out.println("goods 커피 상세조회 컨트롤" + goodsname );
-//		mav = gs.goodsview1(goodsname);
-//		return mav;
-//	}
 
 	
 	

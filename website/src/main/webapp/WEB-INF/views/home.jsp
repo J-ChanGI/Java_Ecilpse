@@ -20,6 +20,14 @@
 		#event{
 			background-color : green;
 		}
+		#ul{
+			list-style:none;
+			margin:0; 
+     		padding:0;
+		}
+		.li{
+		    
+		}	
 		
 	</style>
 
@@ -43,7 +51,7 @@
 <body>
 	<div id="tool">	
 		<div id="nav">
-			<a href="">사이트</a> 
+			<a href=".">사이트</a> 
 		
 		</div>
 		
@@ -57,11 +65,17 @@
 			</c:if>
 			<button onclick="logout()">로그아웃</button>
 		</div>
+		<div>
 			<form action="search" method="get">
+			  
+			  <select name = "searchtype" >
+			  	<option value="catename">카테고리</option>
+			  	<option value="goodsname">상품이름</option>
+			  </select>
 				<input type="text" name="keyword">
 				<input type="submit" value="검색">
 			</form>
-			
+		</div>	
 		<div >
 			<div id="event">
 				<h2>다다</h2>
@@ -71,7 +85,8 @@
 			<div id="category">
 			<h3>카테고리</h3>
 				<form>
-				
+					<ul id="ul">
+                     <li class="li">	
                      <a href="goodslist?catename=음료">
                      	<div class=""><span>
                      		<img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
@@ -80,8 +95,10 @@
 
                      		음료
                      	</div>
+                     
                      </a>
-                               
+                     </li>
+                     <li class="li">          
                      <a href="goodslist?catename=치킨">
                      	<div class=""><span>
                      		<img src="https://img.giftting.co.kr/sendbee/license/20210611/1623377389025_category_icon_06_store.png" alt="편의점"></span>
@@ -91,7 +108,8 @@
                       		치킨
                      	</div>
                      </a>
-                         
+                     </li>
+                    </ul>     
 				</form>
 			</div>
 			
@@ -105,11 +123,12 @@
 		<div id="goods">
 			<h2>전체상품</h2>
 				
-			<a href="goods1"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">아메리카노 </a>
-			<a href="goods2"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">스무디 </a>
-			<a href="goods3"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">황금올리브치킨 </a>
-			<a href="goods4"><img src="C:\Users\user\Desktop\pictuer\고양이1.jpg">허니콤보치킨 </a>
-		
+				<c:forEach var = "homegoods" items= "${homelist}">
+					<td><a href="goods?goodsnumber=${homegoods.goodsnumber}">${homegoods.goodsname}</a></td>
+					
+				</c:forEach>
+				
+			
 	</div>
 		
 </body>

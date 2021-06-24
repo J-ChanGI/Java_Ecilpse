@@ -39,9 +39,6 @@ public class goodsService {
 		mav = new ModelAndView();
 //		goodsDTO goodsdto = gd.goodslist(catename);
 		
-		
-		
-		
 		List<goodsDTO> goodslist = gd.goodslist(catename);
 				
 		mav.addObject("goodslist", goodslist);
@@ -50,20 +47,61 @@ public class goodsService {
 		return mav;
 	}
 
-	public ModelAndView goodssearch(String keyword) {
-		System.out.println("search 서비스" + keyword);
+	public ModelAndView goods(int goodsnumber) {
+		System.out.println("goods 서비스" + goodsnumber);
+		mav = new ModelAndView();
+		
+		goodsDTO goodsdto = gd.goods(goodsnumber);
+		
+		mav.addObject("goods", goodsdto );
+		mav.setViewName("goods");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	public ModelAndView goodssearch(String keyword, String searchtype) {
+		System.out.println("search 서비스" + keyword + searchtype);
 		mav = new ModelAndView();
 	
 		Map<String, String> searchMap= new HashMap<String, String>(); 
 		
 		searchMap.put("word", keyword);
+		searchMap.put("type", searchtype);
 		
 		List<goodsDTO> goodslist = gd.goodssearch(searchMap);
 		
-		mav.addObject("goodslist", goodslist);
+		mav.addObject("homelist", goodslist);
 		mav.setViewName("home");
 		return mav;
 	}
+
+	public ModelAndView homelist() {
+		mav = new ModelAndView();
+		
+		System.out.println("homelist 서비스");
+		List<goodsDTO> homelist = gd.homelist();
+		
+		mav.addObject("homelist", homelist);
+		mav.setViewName("home");
+				
+		return mav;
+	}
+
+	public ModelAndView homegoods(int goodsnumber) {
+		System.out.println("homegoods 서비스" + goodsnumber);
+		
+		goodsDTO goodsdto = gd.homegoods(goodsnumber);
+		mav.addObject("goods", goodsdto);
+		mav.setViewName("goods");
+		
+		return null;
+	}
+
+	
 
 //	public ModelAndView goodsview1(String goodsname) {
 //		System.out.println("goodsview1 커피 상세조회" + goodsname);
