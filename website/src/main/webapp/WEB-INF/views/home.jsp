@@ -78,7 +78,7 @@
 		</div>	
 		<div >
 			<div id="event">
-				<h2>다다</h2>
+				<h2>이벤트 창 </h2>
 			
 			</div>
 			
