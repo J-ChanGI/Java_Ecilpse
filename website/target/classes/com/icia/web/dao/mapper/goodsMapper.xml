@@ -19,12 +19,10 @@
 	
 	<sql id="search">
 		<choose>
-		<when test="type == 'catename'">
-			WHERE CATENAME LIKE '%' ||#{word}||'%'
+		<when test="type == 'catename','goodsname'">
+			WHERE CATENAME LIKE '%' ||#{word}||'%' OR GOODSNAME LIKE '%' || #{word} || '%'
 		</when>
-		<when test="type == 'goodsname'">
-			WHERE GOODSNAME LIKE '%' ||#{word}||'%'
-		</when>
+		
 		</choose>
 	</sql>
 	

@@ -68,9 +68,9 @@
 		<div>
 			<form action="search" method="get">
 			  
-			  <select name = "searchtype" >
-			  	<option value="catename">카테고리</option>
-			  	<option value="goodsname">상품이름</option>
+			  <select name = "searchtype" style="display:none">
+			  	<option value="catename,goodsname"></option>
+			  	
 			  </select>
 				<input type="text" name="keyword">
 				<input type="submit" value="검색">
