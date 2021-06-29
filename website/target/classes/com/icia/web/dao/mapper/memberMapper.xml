@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mb"> 
+		<insert id="membership" parameterType="memberdto">
+			INSERT INTO MEMBERSHIP(MID,MPASSWORD,MNAME,MNUMBER,MEMAIL,MADDRESSNUMBER,MROADADDRESS,MLANDADDRESS,MDATAILEDADDRESS,MNOTE) VALUES(#{mid},#{mpassword},#{mname},#{mnumber},#{memail},#{maddressnumber},#{mroadaddress},#{mlandaddress},#{mdatailedaddress},#{mnote})
+		</insert>
+		<select id="memberidcheck" parameterType="String" resultType="String">
+			SELECT MID FROM MEMBERSHIP WHERE MID=#{mid}
+		</select>
+		<select id="memberlogin" parameterType="memberdto" resultType="String">
+			SELECT MID FROM MEMBERSHIP WHERE MID=#{mid} AND MPASSWORD=#{mpassword}
+		</select>
+		<select id="memberupdate" parameterType="String" resultType="memberdto">
+			SELECT * FROM MEMBERSHIP WHERE MID=#{mid}
+		</select>
+		<update id="memberupdateprocess" parameterType="memberdto">
+			UPDATE MEMBERSHIP SET MNAME=#{mname},MNUMBER=#{mnumber},MEMAIL=#{memail},MADDRESSNUMBER=#{maddressnumber},MROADADDRESS=#{mroadaddress},MLANDADDRESS=#{mlandaddress},MDATAILEDADDRESS=#{mdatailedaddress},MNOTE=#{mnote}
+		</update>
+		<select id="memberlist" resultType="memberdto">
+			SELECT * FROM MEMBERSHIP
+		</select>
+		<select id="memberview" parameterType="String" resultType="memberdto">
+			SELECT * FROM MEMBERSHIP WHERE MID=#{mid}
+		</select>
+		<delete id="memberdelete" parameterType="String">
+			DELETE FROM MEMBERSHIP WHERE MID=#{mid}		
+		</delete>
+		
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
