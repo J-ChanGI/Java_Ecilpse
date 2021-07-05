@@ -4,5 +4,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="memberdto" type="com.icia.project.dto.memberDTO"/>
+		<typeAlias alias="goodsdto" type="com.icia.project.dto.goodsDTO"/>
 	</typeAliases>
 </configuration>

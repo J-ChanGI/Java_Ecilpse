@@ -4,6 +4,7 @@ public class memberDTO {
 	
 	private String mid;
 	private String mpassword;
+	private String mpasswordcheck;
 	private String mname;
 	private String mnumber;
 	private String memail;
@@ -11,6 +12,13 @@ public class memberDTO {
 	private String maddressnumber;
 	private String mroadaddress;
 	private String mlandaddress;
+	
+	public String getMpasswordcheck() {
+		return mpasswordcheck;
+	}
+	public void setMpasswordcheck(String mpasswordcheck) {
+		this.mpasswordcheck = mpasswordcheck;
+	}
 	private String mdatailedaddress;
 	private String mnote;
 	
@@ -82,10 +90,10 @@ public class memberDTO {
 	}
 	@Override
 	public String toString() {
-		return "memberDTO [mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mnumber=" + mnumber
-				+ ", memail=" + memail + ", mdomain=" + mdomain + ", maddressnumber=" + maddressnumber
-				+ ", mroadaddress=" + mroadaddress + ", mlandaddress=" + mlandaddress + ", mdatailedaddress="
-				+ mdatailedaddress + ", mnote=" + mnote + "]";
+		return "memberDTO [mid=" + mid + ", mpassword=" + mpassword + ", mpasswordcheck=" + mpasswordcheck + ", mname="
+				+ mname + ", mnumber=" + mnumber + ", memail=" + memail + ", mdomain=" + mdomain + ", maddressnumber="
+				+ maddressnumber + ", mroadaddress=" + mroadaddress + ", mlandaddress=" + mlandaddress
+				+ ", mdatailedaddress=" + mdatailedaddress + ", mnote=" + mnote + "]";
 	}
 		
 	

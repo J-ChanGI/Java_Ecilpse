@@ -85,10 +85,10 @@
 
 <body>
 <a href=".">홈페이지</a><br>
-	<h2>회원가입</h2>
+	<h2>회원정보수정</h2>
 		<div>
-		<form action="membership" method="post">
-			아이디 : <input type="text" name="mid" id="idcheck" onkeyup="idoverlap()"><br>
+		<form action="mbupdateprocess" method="post">
+			아이디 : <input type="text" name="mid" id="idcheck" onkeyup="idoverlap()"  readonly ><br>
 			<p id="idresult"></p>  
 			비밀번호 : <input type="password"  id="pw" name="mpassword" onkeyup="pwd()"><br>
 			비밀번호 확인 : <input type="password" id="pwdcheck" name="mpasswordcheck" onkeyup="pwdoverlap(this.value)"><br>
@@ -170,7 +170,7 @@
         }).open();
     }
 </script>
-			<input type="submit" value="가입">		
+			<input type="submit" value="수정">		
 		</form>
 		</div>
 </body>
