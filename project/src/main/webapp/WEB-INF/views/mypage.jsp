@@ -26,15 +26,17 @@
 	이름 : ${mypage.mname} <br>
 	전화번호 : ${mypage.mnumber} <br>
 	이메일 : ${mypage.memail} @ ${mypage.mdomain} <br>
-	주소번호 : ${mypage.maddressnunber} <br>
+	주소번호 : ${mypage.maddressnumber} <br>
 	도로명주소 : ${mypage.mroadaddress} <br>
 	지번주소 : ${mypage.mlandaddress} <br>
 	상세주소 : ${mypage.mdatailedaddress} <br>
 	참고 : ${mypage.mnote} <br>
-		
+	<div>	
 	<button onclick="update()">회원정보수정</button><br>
-	
+	<c:if test = "${sessionScope.login eq 'admin' }">
 	<button onclick="memberlistjoin()">회원전체목록 조회(관리자용)</button>
 	<button onclick="goodsuploadjoin()">상품등록(관리자용)</button>
+	</c:if>
+	</div>
 </body>
 </html>

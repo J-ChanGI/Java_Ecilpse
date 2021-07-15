@@ -15,7 +15,7 @@
 			location.href = "loginjoin";			
 		}
 		function mypagejoin(){
-			location.href ="mypagejoin";
+			location.href ="mypage";
 		}
 		function logout(){
 			location.href="logout";
@@ -47,10 +47,12 @@
 					<button onclick="loginjoin()">로그인</button>
 					<button onclick="membershipjoin()">회원가입</button>
 					
+					<c:if test="${ sessionScope.login ne null }" >
 					<button onclick="logout()">로그아웃</button>
-					
-					<button onclick="mypagejoin()">마이페이지</button>
-					<a href="cartpagejoin"> 장바구니 </a>
+					<a href="mypage">마이페이지</a>
+					<a href="cartpage"> 장바구니 </a>
+					</c:if>				
+				
 				</div>
 			</div>
 				<div>

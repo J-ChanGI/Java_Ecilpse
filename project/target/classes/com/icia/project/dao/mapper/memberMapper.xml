@@ -14,13 +14,13 @@
 		SELECT MID FROM MEMBERSHIP WHERE MID =#{mid} AND MPASSWORD=#{mpassword}	
 	</select>
 	<select id="mbupdate" parameterType="String" resultType="memberdto">
-		SELECT * FROM MEMBERSHIP WHERE MID=#{mid}	
+		SELECT * FROM MEMBERSHIP WHERE MID=#{loginId}	
 	</select>
 	<update id="updateprocess" parameterType="memberdto">
-		UPDATE MEMBERSHIP SET MPASSWORD=#{mpassword}, MNAME=#{mname}, MNUMBER=#{mnumber}, MEMAIL=#{memail}, MDOMAIN=#{mdomain}, MADDRESSNUMBER=#{maddressnumber}, MROADADDRESS=#{mroadaddress}, MLANDADDRESS=#{mlandaddress}, MDATAILEDADDRESS=#{mdatailedaddress}, MNOTE=#{mnote}	
+		UPDATE MEMBERSHIP SET MPASSWORD=#{mpassword}, MNAME=#{mname}, MNUMBER=#{mnumber}, MEMAIL=#{memail}, MDOMAIN=#{mdomain}, MADDRESSNUMBER=#{maddressnumber}, MROADADDRESS=#{mroadaddress}, MLANDADDRESS=#{mlandaddress}, MDATAILEDADDRESS=#{mdatailedaddress}, MNOTE=#{mnote} WHERE MID=#{mid}	
 	</update>
 	<select id="mypage" parameterType="String" resultType="memberdto">
-		SELECT * FROM MEMBERSHIP WHERE MID=#{mid}
+		SELECT * FROM MEMBERSHIP WHERE MID=#{loginId}
 	</select>
 	<select id="memberlist" resultType="memberdto">
 		SELECT * FROM MEMBERSHIP

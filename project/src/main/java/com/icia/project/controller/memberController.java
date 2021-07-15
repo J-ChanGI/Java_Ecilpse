@@ -62,11 +62,7 @@ public class memberController {
 		return "home";
 	}
 	
-	@RequestMapping(value="/mypagejoin") // mypage 이동
-	public String mypagejoin() {
-		return "mypage";
-	}
-	
+
 	@RequestMapping(value="mbupdate") // 수정요청
 	public ModelAndView mbupdate() {
 		System.out.println("mbupdate 컨트롤");
@@ -81,9 +77,9 @@ public class memberController {
 	}
 	
 	@RequestMapping(value="/mypage")
-	public ModelAndView mypage(@RequestParam("mid") String mid) {
-		System.out.println("mypage 컨트롤 " + mid);
-		mav = ms.mypage(mid);
+	public ModelAndView mypage() {
+		System.out.println("mypage 컨트롤");
+		mav = ms.mypage();
 		return mav;
 	}
 		

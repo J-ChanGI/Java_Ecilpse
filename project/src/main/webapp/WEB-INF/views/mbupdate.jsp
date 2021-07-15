@@ -88,7 +88,7 @@
 	<h2>회원정보수정</h2>
 		<div>
 		<form action="mbupdateprocess" method="post">
-			아이디 : <input type="text" name="mid" id="idcheck" onkeyup="idoverlap()"  readonly ><br>
+			아이디 : <input type="text" name="mid" id="idcheck" onkeyup="idoverlap()" value="${sessionScope.login}" readonly ><br>
 			<p id="idresult"></p>  
 			비밀번호 : <input type="password"  id="pw" name="mpassword" onkeyup="pwd()"><br>
 			비밀번호 확인 : <input type="password" id="pwdcheck" name="mpasswordcheck" onkeyup="pwdoverlap(this.value)"><br>

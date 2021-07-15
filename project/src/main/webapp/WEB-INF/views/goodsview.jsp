@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,15 +24,16 @@
 			</div>
 		
 		</div>
+		<c:if test="${ sessionScope.login ne null }" >
 			<form action="cart" method="post">
-				<input type="hidden" name="cartid">
-				<input type="hidden" name="cartgoods">
-				<input type="hidden" name="cartprice">
-				<input type="hidden" name="cartnumber">
-				<input type="hidden" name="cartamount">
-				<input type="hidden" name="cartcode">
-				<input type="submit" value="찜">				
+				<input type="hidden" name="cartid" value="${sessionScope.login}">
+				<input type="hidden" name="cartgoods" value="${goods.goodsname}">
+				<input type="hidden" name="cartprice" value="${goods.goodsprice }">
+				<input type="hidden" name="cartnumber" value="${goods.goodsnumber }">
+				수량 : <input type="text" name="cartamount"><br>
+				<input type="submit" value="장바구니">				
 			</form>
+			</c:if>
 			<button onclick="goodsdelete('${goods.goodsnumber}')">삭제</button>
 	</div> 
 

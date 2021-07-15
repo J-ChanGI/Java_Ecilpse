@@ -29,19 +29,19 @@ public class memberDao {
 		return sql.selectOne("mm.login", memberdto);
 	}
 
-	public memberDTO mbupdate(String id) {
-		System.out.println("mbupdate 디에이오" + id);
-		return sql.selectOne("mm.mbupdate" ,id);
+	public memberDTO mbupdate(String loginId) {
+		System.out.println("mbupdate 디에이오" + loginId);
+		return sql.selectOne("mm.mbupdate" ,loginId);
 	}
 
 	public int mbupdateprocess(memberDTO memberdto) {
-		System.out.println("mbupdateprocess" + memberdto);
+		System.out.println("mbupdateprocess 디에이오 " + memberdto);
 		return sql.update("mm.updateprocess", memberdto);
 	}
 
-	public memberDTO mypage(String mid) {
-		System.out.println("mypage 디에이오" + mid);
-		return sql.selectOne("mm.mypage", mid);
+	public memberDTO mypage(String loginId) {
+		System.out.println("mypage 디에이오" + loginId);
+		return sql.selectOne("mm.mypage", loginId );
 	}
 
 	public List<memberDTO> memberlist() {

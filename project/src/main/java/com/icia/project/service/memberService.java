@@ -68,10 +68,10 @@ public class memberService {
 	}
 
 	public ModelAndView mbupdate() {
-		System.out.println("update 서비스");
+		System.out.println("mbupdate 서비스");
 		mav = new ModelAndView();
-		String id = (String) session.getAttribute("login");
-		memberDTO memberdto = md.mbupdate(id);
+		String loginId = (String) session.getAttribute("login");
+		memberDTO memberdto = md.mbupdate(loginId);
 		
 		mav.addObject("mbupdate", memberdto);
 		mav.setViewName("mbupdate");
@@ -91,11 +91,11 @@ public class memberService {
 		return mav;
 	}
 
-	public ModelAndView mypage(String mid) {
-		System.out.println("mypage 서비스" + mid);
+	public ModelAndView mypage() {
+		System.out.println("mypage 서비스");
 		mav = new ModelAndView();
-		
-		memberDTO memberdto = md.mypage(mid);
+		String loginId = (String) session.getAttribute("login");
+		memberDTO memberdto = md.mypage(loginId);
 		
 		mav.addObject("mypage", memberdto);
 		mav.setViewName("mypage");
