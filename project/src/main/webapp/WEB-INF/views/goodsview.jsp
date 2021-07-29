@@ -26,7 +26,7 @@
 			<div>
 				${goods.goodsimgname}<br>	
 				${goods.goodsname}<br>			
-				가격 : ${goods.goodsprice}<br>
+				가격 : ${goods.goodsprice}원<br>
 				${goods.goodsintro}<br>
 			</div>
 		

@@ -16,6 +16,7 @@
 		function cartdelete(cartcode){
 			location.href="cartdelete?cartcode="+ cartcode;
 		}
+		
 </script>
 </head>
 <body>
@@ -38,11 +39,11 @@
 				<tr>
 					
 					<th>${cart.cartgoods}</th>
-					<th>${cart.cartprice}</th>
+					<th>${cart.cartprice}원</th>
 					<th>${cart.cartnumber}</th>
 					<th>${cart.cartamount}</th>
 					<th>${cart.cartimgname}</th>
-					<th>${cart.cartprice}*${cart.cartamount}</th>				
+					<th>1</th>		
 					<th><button onclick="cartdelete(${cart.cartcode})">삭제</button>	</th>
 				</tr>
 				
