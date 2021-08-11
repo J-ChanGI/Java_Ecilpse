@@ -32,15 +32,29 @@
 		
 	</script>
 	
+	<style>
+			#order{
+			display: inline-block;
+       		top : 10%;
+			position : absolute;
+			width : 300px ; height : 160px;
+			}
 	
+		#body{
+			margin-left: 20%;
+			margin-right : 20%;
+		}
+		</style>
 	
 </head>
 <body>
-<a href=".">메인페이지</a>
+<div id="body">
+<a href=".">home</a>
+	<div id="order">
+
 		<h2>주문하기</h2>
 		
-		<div id="1">
-			<div >
+	
 			<form action="" method="post">
 				<p>이름 : <input type="text" name="" value=" ${order.mid}"></p>
 				<p>전화번호 : <input type="text" name="" value="${order.mnumber}"></p>
@@ -61,15 +75,9 @@
 				<p>합계 :  <input type="text" id="idsum" name="sum" value="${orders.goodsprice}"></p>
 				<input type="submit" value="결제하기">
 			</form>
-			</div>	
-			<div >
-				
-			</div>
 		</div>
-		<div id="2">
-			
-			
-		</div>
+	</div>		
+		
 			
 		
 </body>

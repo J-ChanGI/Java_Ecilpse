@@ -19,13 +19,32 @@
 			location.href = "memberdelete?mid=" + mid;
 		}
 	</script>
+	<style>
+			#memberlist{
+			display: inline-block;
+       		top : 10%;
+			position : absolute;
+			width : 300px ; height : 160px;
+			}
+	
+		#body{
+			margin-left: 20%;
+			margin-right : 20%;
+		}
+		table{
+			width: 1000px;
+		}
+	</style>
 <title>Insert title here</title>
 </head>
 <body>
-<a href=".">홈페이지</a>
+<div id="body">
+<a href=".">home</a>	
+	<div id="memberlist">
+
 	<h2>회원목록</h2>
 	
-		<table>
+		<table >
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
@@ -46,5 +65,7 @@
 		
 	</c:forEach>
 		</table>
+	</div>
+</div>
 </body>
 </html>

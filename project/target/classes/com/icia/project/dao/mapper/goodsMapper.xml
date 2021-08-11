@@ -27,7 +27,7 @@
 	
 	<sql id="search">
 		<choose>
-		<when test="type == 'goodsname','goodsbrand'">
+		<when test="type == 'goodsname','goodsbrand','goodstype'">
 			WHERE GOODSNAME LIKE '%' || #{word} || '%' OR GOODSBRAND LIKE '%' || #{word} || '%'
 		</when>
 		</choose>

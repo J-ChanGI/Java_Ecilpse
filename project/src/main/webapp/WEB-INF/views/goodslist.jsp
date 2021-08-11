@@ -5,11 +5,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+			#goodslist{
+			display: inline-block;
+       		top : 10%;
+			position : absolute;
+			width : 300px ; height : 160px;
+			}
+	
+		#body{
+			margin-left: 20%;
+			margin-right : 20%;
+		}
+		</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<a href=".">홈</a><br>
+<div id="body">
+<a href=".">home</a><br>
+		<div id="goodslist">
+	
 	
 	
 		<table>
@@ -27,7 +43,8 @@
 			
 		</table>
 		
-		
+	</div>
+</div>	
 		
 </body>
 </html>

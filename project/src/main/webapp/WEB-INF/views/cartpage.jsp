@@ -10,6 +10,11 @@
 		table, tr, th{
 			border: 1px solid black ;
 		}
+		#body{
+			margin-left: 20%;
+			margin-right : 20%;
+			top : 10%;
+		}
 </style>
 
 <script>
@@ -20,7 +25,8 @@
 </script>
 </head>
 <body>
-<a href=".">메인페이지</a><br>
+<div id="body">
+<a href=".">home</a><br>
 <h2>장바구니</h2>
 		<table>
 			<tr>
@@ -43,7 +49,7 @@
 					<th>${cart.cartnumber}</th>
 					<th>${cart.cartamount}</th>
 					<th><img src="${cart.cartimgname}"></th>
-					<th><p id="sum"></p></th>		
+					<th>${cart.cartsum}원</th>		
 					<th><button onclick="cartdelete(${cart.cartcode})">삭제</button>	</th>
 				</tr>
 				
@@ -52,7 +58,7 @@
 		</c:forEach>
 			
 			</table>	
-			<h2>합계 금액 : </h2>
+</div>			
 			
 
 </body>

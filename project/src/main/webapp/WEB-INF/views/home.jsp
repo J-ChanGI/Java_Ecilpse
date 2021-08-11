@@ -33,9 +33,13 @@
 		}
 		#ul_middle_menu li{
 			display : inline;
-		}#ul_middle_menu a{
+		}
+		#ul_middle_menu a{
 			text-decoration :none ;
 			color: inherit;
+		}
+		.img{
+			border : 1px solid black;
 		}
 		
 	</style>
@@ -59,6 +63,8 @@
 		}
 		
 	</script>
+	
+	
 </h1>
 
 
@@ -78,13 +84,13 @@
 						</c:if>				
 						</ul>
 					
-				<a href=".">홈</a>
+				<a href=".">home</a>
 				<div id="search">
 				
 				<form action ="search" method="post">
 							
 							<select name="searchtype" style="display:none">
-								<option value="goodsname, goodsbrand"></option>
+								<option value="goodsname, goodsbrand, goodstype"></option>
 							</select>
 							
 							<input type="text" name="keyword">
@@ -108,12 +114,12 @@
 					<h2 id="h2">전체상품</h2>
 					<div id="goods">
 					<c:forEach var ="homegoods" items="${homelist}" >
-						<td><a href="goodsview?goodsnumber=${homegoods.goodsnumber}"><img src="${homegoods.goodsimgname}"></a></td>
+						<td><a href="goodsview?goodsnumber=${homegoods.goodsnumber}"><img src="${homegoods.goodsimgname}" ></a></td>
 
 					</c:forEach>
 					</div>
 		<br>
-		<span>더보기</span>
+		
 		
 		</div>
 </body>

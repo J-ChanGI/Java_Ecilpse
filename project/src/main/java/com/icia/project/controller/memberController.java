@@ -63,7 +63,7 @@ public class memberController {
 	}
 	
 
-	@RequestMapping(value="mbupdate") // 수정요청
+	@RequestMapping(value="/mbupdate") // 수정요청
 	public ModelAndView mbupdate() {
 		System.out.println("mbupdate 컨트롤");
 		mav = ms.mbupdate();

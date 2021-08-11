@@ -185,6 +185,7 @@
         }).open();
     }
 </script>
+			<br>
 			<input type="submit" value="가입">		
 		</form>
 		</div>

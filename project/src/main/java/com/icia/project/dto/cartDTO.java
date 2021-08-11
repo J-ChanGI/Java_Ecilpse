@@ -9,6 +9,7 @@ public class cartDTO {
 	private int cartamount;
 	private int cartcode;
 	private String cartimgname;
+	private int cartsum;
 	
 	public String getCartid() {
 		return cartid;
@@ -52,14 +53,21 @@ public class cartDTO {
 	public void setCartimgname(String cartimgname) {
 		this.cartimgname = cartimgname;
 	}
+	public int getCartsum() {
+		return cartsum;
+	}
+	public void setCartsum(int cartsum) {
+		this.cartsum = cartsum;
+	}
 	
 	@Override
 	public String toString() {
 		return "cartDTO [cartid=" + cartid + ", cartgoods=" + cartgoods + ", cartprice=" + cartprice + ", cartnumber="
 				+ cartnumber + ", cartamount=" + cartamount + ", cartcode=" + cartcode + ", cartimgname=" + cartimgname
-				+ "]";
+				+ ", cartsum=" + cartsum + "]";
 	}
-		
+	
+	
 	
 	
 	

@@ -17,9 +17,25 @@
 			location.href="goodsuploadjoin"
 		}
 	</script>
+	<style>
+		#mypage{
+			display: inline-block;
+       		top : 10%;
+			position : absolute;
+			width : 300px ; height : 160px;
+			}
+	
+		#body{
+			margin-left: 20%;
+			margin-right : 20%;
+		}
+	</style>
+
 </head>
 <body>
+<div id="body">
 <a href=".">홈페이지</a><br>
+	<div id="mypage" >
 	<h2>마이페이지</h2>
 	
 	아이디 : ${mypage.mid} <br>
@@ -31,12 +47,16 @@
 	지번주소 : ${mypage.mlandaddress} <br>
 	상세주소 : ${mypage.mdatailedaddress} <br>
 	참고 : ${mypage.mnote} <br>
-	<div>	
+	<br>
 	<button onclick="update()">회원정보수정</button><br>
+	
+	
 	<c:if test = "${sessionScope.login eq 'admin' }">
 	<button onclick="memberlistjoin()">회원전체목록 조회(관리자용)</button>
 	<button onclick="goodsuploadjoin()">상품등록(관리자용)</button>
 	</c:if>
+	
 	</div>
+</div>
 </body>
 </html>

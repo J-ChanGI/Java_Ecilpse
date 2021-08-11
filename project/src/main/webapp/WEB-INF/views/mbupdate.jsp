@@ -81,10 +81,26 @@
 			
 		</script>
 		
+		<style>
+			#update{
+			display: inline-block;
+       		top : 10%;
+			position : absolute;
+			width : 300px ; height : 160px;
+			}
+	
+		#body{
+			margin-left: 20%;
+			margin-right : 20%;
+		}
+		</style>
 </head>
 
 <body>
+<div id="body">
+	
 <a href=".">홈페이지</a><br>
+	<div id="update">
 	<h2>회원정보수정</h2>
 		<div>
 		<form action="mbupdateprocess" method="post">
@@ -173,5 +189,7 @@
 			<input type="submit" value="수정">		
 		</form>
 		</div>
+		</div>
+</div>
 </body>
 </html>

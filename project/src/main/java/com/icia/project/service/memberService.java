@@ -84,7 +84,7 @@ public class memberService {
 		
 		int updateresult = md.mbupdateprocess(memberdto);
 		if(updateresult > 0 ) {
-			mav.setViewName("mypage");
+			mav.setViewName("redirect:mypage");
 		}else {
 			mav.setViewName("updatefail");
 		}
@@ -130,7 +130,7 @@ public class memberService {
 		System.out.println("memberdelete 서비스" + mid);
 		mav = new ModelAndView();
 		md.memberdelete(mid);
-		mav.setViewName("memberlist");
+		mav.setViewName("redirect:memberlist");
 		
 		return mav;
 	}
