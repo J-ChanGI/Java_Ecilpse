@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="bw"> 
+	<insert id="boardwrite" parameterType="boarddto">
+		INSERT INTO BOARD210602 (BNUMBER, BWRITER, BTITLE, BCONTENTS, BFILENAME, BDATE, BHITS) 
+			VALUES (BOARD210602_SEQ1.NEXTVAL,#{bwriter},#{btitle},#{bcontents},#{bfilename},SYSDATE,0)	
+	</insert>
+	<select id="boardlist" resultType="boarddto">
+		SELECT * FROM BOARD210602	
+	</select>	
+	
+	<update id="boardhits" parameterType="int">
+		UPDATE BOARD210602 SET BHITS = BHITS +1 WHERE BNUMBER=#{bnumber}	
+	</update>
+	<select id="boardview" parameterType="int" resultType="boarddto">
+		SELECT * FROM BOARD210602 WHERE BNUMBER=#{bnumber}	
+	</select>
+	<select id="bviewupdate" parameterType="int" resultType="boarddto">
+		SELECT * FROM BOARD210602 WHERE BNUMBER=#{bnumber}
+	</select>
+	<update id="boardupdateprocess" parameterType="boarddto">
+		UPDATE BOARD210602 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents},BFILENAME=#{bfilename} WHERE BNUMBER=#{bnumber}	
+	</update>
+	
+	<delete id="boarddelete" parameterType="int">
+		DELETE FROM BOARD210602 WHERE BNUMBER=#{bnumber}			
+	</delete>
+	<select id="listcount" resultType="int">
+		SELECT COUNT(BNUMBER) FROM BOARD210602
+	</select>
+	<select id="boardpaging" parameterType="pagedto" resultType="boarddto">
+		SELECT * FROM (SELECT B.*, ROW_NUMBER() OVER(ORDER BY BNUMBER DESC)
+		AS RN FROM BOARD210602 B) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="boardsearch" parameterType="java.util.HashMap" resultType="boarddto">
+		SELECT *FROM BOARD210602
+			<include refid="search"></include>				
+	</select>
+	<sql id="search">
+		<choose>
+			<when test="type=='btitle'">
+				WHERE BTITLE LIKE '%'||#{word}||'%'
+			</when>
+			<when test="type=='bwriter'">
+				WHERE BWRITER LIKE '%'||#{word}||'%'
+			</when>
+		</choose>
+	</sql>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
