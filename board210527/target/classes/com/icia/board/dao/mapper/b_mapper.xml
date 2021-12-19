@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="board"> 
+	<insert id="boardwrite" parameterType="b_dto">
+		INSERT INTO BOARD210527(BNUMBER,BWRITER,BPASSWORD,BTITLE,BCONTENTS,BDATE,BHITS) 
+			VALUES(BOARD_SEQ.NEXTVAL,#{bwriter},#{bpassword},#{btitle},#{bcontents},SYSDATE,0)
+	</insert>
+	
+	<select id="boardlist" resultType="b_dto">
+		SELECT * FROM BOARD210527  
+	</select>
+	
+	<update id="boardhits" parameterType="int">
+		UPDATE BOARD210527 SET BHITS=BHITS+1 WHERE BNUMBER=#{bnumber}
+	</update>
+	
+	<select id="boardview" parameterType="int" resultType="b_dto">
+		SELECT * FROM BOARD210527 WHERE BNUMBER=#{bnumber}
+	</select>
+	
+	<update id="boardupdate" parameterType="b_dto">
+		UPDATE BOARD210527 SET BTITLE=#{btitle}, BCONTENTS=#{bcontents} WHERE BNUMBER=#{bnumber}
+	</update>
+		
+	<delete id="boarddelete" parameterType="int">
+			DELETE FROM BOARD210527 WHERE BNUMBER=#{bnumber}		
+	</delete>
+	
+	<insert id="boardwritefile" parameterType="b_dto">
+		INSERT INTO BOARD210527(BNUMBER,BWRITER,BPASSWORD,BTITLE,BCONTENTS,BDATE,BHITS, BFILENAME) <!-- DB 에도 BFILENAME 을 하나 추가 글자형으로  -->
+			VALUES(BOARD_SEQ.NEXTVAL,#{bwriter},#{bpassword},#{btitle},#{bcontents},SYSDATE,0,#{bfilename})
+	</insert>
+	
+	<select id="listcount" resultType="int">
+		SELECT COUNT(BNUMBER) FROM BOARD210527
+	</select>
+	
+	<select id="boardpaging" parameterType ="pagedto" resultType="b_dto">
+		SELECT * FROM (SELECT B.*, ROW_NUMBER() OVER(ORDER BY BNUMBER DESC)
+		AS RN FROM BOARD210527 B) WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="boardsearch" parameterType="java.util.HashMap" resultType="b_dto">
+		SELECT * FROM BOARD210527
+			<include refid = "search"></include>
+	</select>
+		<sql id="search">
+			<choose>
+				<when test="type=='btitle'">
+					WHERE BTITLE LIKE '%' ||#{word}||'%"
+				</when>
+				<when test="type=='bwriter'">
+					WHERE BWRITER LIKE '%' ||#{word}||'%'
+				</when>	
+			</choose>
+			
+		</sql>
+	
+	
+ </mapper>
+ 
+ <!-- view , 수정요청, 처리 , 삭제 안되고  -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
