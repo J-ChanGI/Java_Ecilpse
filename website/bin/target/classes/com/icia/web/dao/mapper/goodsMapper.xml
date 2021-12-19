@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="goods"> 
+	<insert id="goodsupload" parameterType="goodsdto">
+		INSERT INTO GOODSLIST (GOODSNAME, GOODSPRICE, GOODSBRAND, CATENAME,GOODSNUMBER) 
+		VALUES(#{goodsname},#{goodsprice},#{goodsbrand},#{catename},GOODS_SEQ.NEXTVAL)
+	</insert>
+	<select id="goodslist" parameterType="String" resultType="goodsdto">
+		SELECT * FROM GOODSLIST WHERE CATENAME=#{catename}
+		
+	</select>
+	
+	<select id="goodssearch" parameterType="java.util.HashMap" resultType="goodsdto">
+		SELECT * FROM GOODSLIST
+			<include refid="search"></include>
+	</select>
+	
+	<sql id="search">
+		<choose>
+		<when test="type == 'catename','goodsname'">
+			WHERE CATENAME LIKE '%' ||#{word}||'%' OR GOODSNAME LIKE '%' || #{word} || '%'
+		</when>
+		
+		</choose>
+	</sql>
+	
+	
+	<select id="goods" parameterType="int" resultType="goodsdto">
+		SELECT * FROM GOODSLIST WHERE GOODSNUMBER=#{goodsnumber}
+	</select>
+	
+	<select id="homelist" resultType="goodsdto">
+		SELECT * FROM GOODSLIST
+	</select>
+	
+	<select id="homegoods" parameterType="int" resultType="goodsdto">
+		SELECT * FROM GOODSLIST WHERE GOODSNUMBER=#{goodsnumber}
+	</select>
+	
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
